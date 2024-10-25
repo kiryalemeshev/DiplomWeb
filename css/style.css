@@ -74,4 +74,74 @@ header ul li a {
     padding: 10px;
 }
 
+header ul li a:hover
+{
+    background: red; /* #006669*/
+    transition: 0.5s;
+    color: #fff;
+}
 
+header ul li ul
+{
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    width: 180px;
+    display: none;
+    z-index: 88888;
+}
+
+header ul li:hover ul
+{
+    display: block;
+}
+
+header ul li ul li{
+    width: 100%;
+}
+
+header ul li ul li a{
+    padding: 10px;
+    background: lightgray;
+    color: red;
+
+}
+
+/*
+    Slider
+*/
+
+.slider-title{
+    text-align: center;
+    padding: 30px 0 ;
+}
+
+.carousel{
+    height: 300px;
+}
+
+.carousel-inner, .carousel-item{
+    height: 300px;
+    border-radius: 10px;
+}
+
+.carousel-caption h5
+{
+    font-size: 2rem;
+    font-weight: 500;
+    background: black;
+    max-width: 100%;
+    opacity: 0.5;
+}
+
+.carousel-caption h5 a
+{
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.carousel-caption h5 a:hover
+{
+    text-decoration: underline;
+}
