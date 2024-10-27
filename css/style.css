@@ -23,6 +23,18 @@ a:hover{
     color: crimson;
 }
 
+input{
+    padding: 10px 12px;
+    display: block;
+    width: 70%;
+    border-radius: 3px;
+    border: 1px solid #ececec;
+    line-height: 1.5rem;
+    color: #444444;
+    font-size: 1rem;
+
+}
+
 /*
     HEADER
  */
@@ -144,4 +156,88 @@ header ul li ul li a{
 .carousel-caption h5 a:hover
 {
     text-decoration: underline;
+}
+
+/*
+    Main
+*/
+
+.main-content h2
+{
+    margin: 20px 0;
+}
+
+.main-content .post
+{
+    margin-bottom: 30px;
+}
+
+.main-content .post_text{
+    background: white;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.main-content .post_text h3 a:hover
+{
+    text-decoration: underline;
+    color: dimgrey;
+}
+
+.main-content .post_text h3{
+    margin: 10px 0;
+}
+
+.main-content .post_text p{
+    margin: 0px 14px 14px 0px;
+}
+
+/*
+    SideBar
+*/
+
+
+.sidebar {
+    position: absolute;
+    top: 62%;
+    right: 0;
+}
+
+
+
+.section
+{
+    margin-top: 10px;
+}
+
+.sidebar .section
+{
+
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.sidebar .topics ul{
+    width: 70%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border-top: 5px solid #e0e0e0;
+}
+
+.sidebar .topics ul li a{
+    display: block;
+    padding: 15px 0 15px 0;
+    border-bottom: 3px solid #e0e0e0;
+    transition: all 0.3s;
+    text-decoration: none;
+    font-weight: 500;
+    color: #5c5b5b;
+    font-size: 1.2rem;
+}
+
+.sidebar .topics ul li a:hover
+{
+    padding-left: 10px;
+    transition: all 0.3s    ;
 }
