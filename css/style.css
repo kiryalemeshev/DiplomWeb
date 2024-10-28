@@ -241,3 +241,20 @@ header ul li ul li a{
     padding-left: 10px;
     transition: all 0.3s    ;
 }
+
+/*
+    Single post
+ */
+
+
+.single_post .info
+{
+    margin: 20px 0;
+}
+
+.single_post .info p
+{
+    display: inline-block;
+    margin-right: 20px;
+
+}
