@@ -258,3 +258,33 @@ header ul li ul li a{
     margin-right: 20px;
 
 }
+
+/*
+    Registration
+ */
+
+.reg_form h2
+{
+    text-align: center;
+    margin: 30px 0;
+
+}
+
+.reg_form input
+{
+    height: 3.3rem;
+}
+
+.reg_form a{
+    font-size: 1.2em;
+    transition: all .3s;
+    color: #5c5b5b;
+    text-decoration: underline;
+    margin-left: 180px;
+}
+
+.reg_form a:hover{
+    margin-left: 170px;
+    transition: all .3s;
+}
+
