@@ -16,9 +16,9 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-  <link rel="icon" type="image/png" href="icons/icon.png">
+  <link rel="icon" type="image/png" href="assets/icons/icon.png">
 
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -34,25 +34,25 @@
     <div class = "row">
       <div class="col-4">
         <h1>
-          <a href="index.html">Интервьюирование</a></h1>
+          <a href="index.php">Интервьюирование</a></h1>
       </div>
       <nav class="col-8">
         <ul>
-          <li><a href="index.html">
-            <img src="icons/home.png" alt="Главная" style="width: 30px; height: 30px;" />
+          <li><a href="index.php">
+            <img src="assets/icons/home.png" alt="Главная" style="width: 30px; height: 30px;" />
             Главная
           </a></li>
           <li><a href="#">
-            <img src="icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
+            <img src="assets/icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
             Контакты приемной комиссии
           </a></li>
           <li><a href="#">
-            <img src="icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
+            <img src="assets/icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
             Услуги
           </a></li>
           <li>
             <a href="#">
-              <img src="icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
+              <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
               Кабинет
             </a>
             <ul>
@@ -87,7 +87,7 @@
     <div class="w-100"></div>
     <div class="mb-3 col-12 col-md-4">
       <button type="button" class="btn btn-danger">Войти</button>
-      <a href="reg.html">Регистрация</a>
+      <a href="reg.php">Регистрация</a>
     </div>
   </form>
 </div>
@@ -116,7 +116,7 @@
       <div class="col-sm-4">
         <h3>Полезные ссылки</h3>
         <ul>
-          <li><a href="index.html">Главная</a></li>
+          <li><a href="index.php">Главная</a></li>
           <li><a href="#">О компании</a></li>
           <li><a href="#">Контакты</a></li>
         </ul>

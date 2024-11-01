@@ -16,9 +16,9 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-    <link rel="icon" type="image/png" href="icons/icon.png">
+    <link rel="icon" type="image/png" href="assets/icons/icon.png">
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
@@ -39,25 +39,25 @@
             <nav class="col-8">
                 <ul>
                     <li><a href="index.html">
-                        <img src="icons/home.png" alt="Главная" style="width: 30px; height: 30px;" />
+                        <img src="assets/icons/home.png" alt="Главная" style="width: 30px; height: 30px;" />
                         Главная
                     </a></li>
                     <li><a href="#">
-                        <img src="icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
+                        <img src="assets/icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
                         Контакты приемной комиссии
                     </a></li>
                     <li><a href="#">
-                        <img src="icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
+                        <img src="assets/icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
                         Услуги
                     </a></li>
                     <li>
                         <a href="#">
-                            <img src="icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
+                            <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
                             Кабинет
                         </a>
                         <ul>
-                            <li><a href="log.html">Админ панель</a></li>
-                            <li><a href="log.html">Выход</a></li>
+                            <li><a href="log.php">Админ панель</a></li>
+                            <li><a href="log.php">Выход</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -77,21 +77,21 @@
 
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="image/image_1.png" class="d-block w-100" alt="..." >
+                <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="single.html">Перейти</a></h5>
+                    <h5><a href="single.php">Перейти</a></h5>
 
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="image/image_2.png" class="d-block w-100" alt="..." >
+                <img src="assets/image/image_2.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="">Перейти</a></h5>
 
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="image/image_3.png" class="d-block w-100" alt="..." >
+                <img src="assets/image/image_3.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="">Перейти</a></h5>
 
@@ -119,18 +119,18 @@
             <h2>Последние опросы</h2>
             <div class="post row">
                 <div class="img col-12 col-md-4">
-                    <a href="single.html">
-                    <img src="image/image_4.png" alt="img-thumbnail">
+                    <a href="single.php">
+                    <img src="assets/image/image_4.png" alt="img-thumbnail">
                     </a>>
                 </div>
             <div class="post_text col-12 col-md-8">
                 <h3>
-                    <a href="single.html">Сдача вступительных испытаний...</a>
+                    <a href="single.php">Сдача вступительных испытаний...</a>
 
                 </h3>
 
-                <p><img src="icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
-                <p><img src="icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
+                <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
+                <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
                 <p class="preview-text">
                     Мы предлагаем вам пройти небольшой опрос, который поможет нам определить,
                     какие предметы ЕГЭ будут наиболее сдаваемы при поступлении в Вуз.
@@ -142,7 +142,7 @@
 
             <div class="post row">
                 <div class="img col-12 col-md-4">
-                    <img src="image/image_5.png" alt="img-thumbnail">
+                    <img src="assets/image/image_5.png" alt="img-thumbnail">
                 </div>
                 <div class="post_text col-12 col-md-8">
                     <h3>
@@ -150,8 +150,8 @@
 
                     </h3>
 
-                    <p><img src="icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
-                    <p><img src="icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
+                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
+                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
                     <p class="preview-text">
                         Мы хотим узнать больше о том, чем вы интересуетесь помимо учебы.
                         Ваши увлечения и внеучебная активность помогают нам лучше понимать вашу личность и потенциал.
