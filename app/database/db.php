@@ -87,16 +87,41 @@ function  selectOne($table,$params=[])
 }
 
 
+//Запись в таблицу БД
+function insert($table,$params){
+    global $pdo;
+    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ivan', 'ivan4@yandex.ru', 'ivan4');
 
-$params = [
-    'admin' => 1,
-    'username' => 'Kirill'
+    $i = 0;
+    $coll = '';
+    $mask = '';
+    foreach ($params as $key=>$value){
+        if ($i===0){
+            $coll = $coll . "$key";
+            $mask = $mask . "'" ."$value" ."'";
+        }else{
+            $coll = $coll . ", $key";
+            $mask = $mask . ", '" . "$value" . "'";
+        }
+        $i++;
+    }
 
+
+    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+}
+
+$arrData = [
+    'admin' => '1',
+    'username' => 'Kirra',
+    'email' => 'KirraRra@yandex.ru',
+    'password' => '28042003',
+    'created' => '2021-01-01 00:00:01'
 ];
 
-//tt(selectAll('users',$params));
-tt(selectOne('users'));
-
-
-
+insert('users',$arrData);
 
