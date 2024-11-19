@@ -57,8 +57,6 @@ function  selectAll($table,$params=[])
 }
 
 
-
-
 //Запрос на получение данных с одной строки выбранной таблицы
 function  selectOne($table,$params=[])
 {
@@ -106,7 +104,6 @@ function insert($table,$params){
         $i++;
     }
 
-
     $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
 
     $query = $pdo->prepare($sql);
@@ -115,13 +112,47 @@ function insert($table,$params){
 
 }
 
-$arrData = [
-    'admin' => '1',
-    'username' => 'Kirra',
-    'email' => 'KirraRra@yandex.ru',
-    'password' => '28042003',
-    'created' => '2021-01-01 00:00:01'
-];
+//Обновление строки в БД
+function update($table, $id, $params){
+    global $pdo;
+    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ivan', 'ivan4@yandex.ru', 'ivan4');
 
-insert('users',$arrData);
+    $i = 0;
+    $str = '';
+
+    foreach ($params as $key=>$value){
+        if ($i===0){
+            $str = $str . $key . " = '" . $value ."'";
+        }else{
+
+            $str = $str . ", " . $key . " = '" . $value . "'";
+        }
+        $i++;
+    }
+
+    $sql = "UPDATE $table SET $str where id = $id";
+
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+}
+
+
+//Удаление строки в БД
+function delete($table, $id){
+    global $pdo;
+    //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ivan', 'ivan4@yandex.ru', 'ivan4');
+
+
+    $sql = "DELETE FROM $table WHERE id = $id";
+
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+
+}
+
+delete('users',7);
 
