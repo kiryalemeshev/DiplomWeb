@@ -1,4 +1,9 @@
-<?php include("path.php"); ?>
+<?php
+    include "path.php";
+    include "app/controllers/users.php";
+    ?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -39,31 +44,31 @@
 
 <!-- FORM -->
 <div class="container reg_form">
-    <form class="row justify-content-center" method="post" action="reg.html">
+    <form class="row justify-content-center" method="post" action="reg.php">
         <h2>Форма регистрации</h2>
         <div class="mb-3 col-12 col-md-4">
             <label for="formGroupExampleInput" class="form-label">Ваш логин</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
+            <input name="login"  type="text" class="form-control" id="formGroupExampleInput" placeholder="введите ваш логин...">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputEmail1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input name="mail" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">Ваш email адрес не будет использован для спама!</div>
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword1" class="form-label">Пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input name="pass-first" type="password" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
             <label for="exampleInputPassword2" class="form-label">Повторите пароль</label>
-            <input type="password" class="form-control" id="exampleInputPassword2">
+            <input  name="pass-second" type="password" class="form-control" id="exampleInputPassword2">
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
-            <button type="button" class="btn btn-danger">Регистрация</button>
+            <button type="submit" class="btn btn-danger" name="button-reg">Регистрация</button>
             <a href="log.php">Войти</a>
         </div>
     </form>
