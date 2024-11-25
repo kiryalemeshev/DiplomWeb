@@ -1,4 +1,9 @@
-<?php include("path.php"); ?>
+<?php
+    include "path.php";
+    include "app/controllers/vi.php";
+?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -57,63 +62,67 @@
             <h1>Опросник для сдающих ЕГЭ</h1>
             <p>Пожалуйста, ответьте на следующие вопросы:</p>
 
-            <form action="/submit" method="post">
-              <!-- Вопрос 1 -->
-              <p><strong>Вопрос 1.</strong> Как вы оцениваете свою подготовку к ЕГЭ?</p>
-              <select id="question1" name="question1">
-                <option value="">Выберите вариант...</option>
-                <option value="Отличная">Отличная</option>
-                <option value="Хорошая">Хорошая</option>
-                <option value="Удовлетворительная">Удовлетворительная</option>
-                <option value="Неудовлетворительная">Неудовлетворительная</option>
-              </select>
+            <form action="single.php" method="post">
+<!--                Вопрос 1 -->
+<!--              <p><strong>Вопрос 1.</strong> Как вы оцениваете свою подготовку к ЕГЭ?</p>-->
+<!--              <select id="question1" name="question1">-->
+<!--                <option value="">Выберите вариант...</option>-->
+<!--                <option value="Отличная">Отличная</option>-->
+<!--                <option value="Хорошая">Хорошая</option>-->
+<!--                <option value="Удовлетворительная">Удовлетворительная</option>-->
+<!--                <option value="Неудовлетворительная">Неудовлетворительная</option>-->
+<!--              </select>-->
 
               <!-- Вопрос 2 -->
-              <p><strong>Вопрос 2.</strong> Какие предметы вы планируете сдавать на ЕГЭ?</p>
-              <input type="text" id="question2" name="question2" placeholder="Введите список предметов через запятую">
+              <p><strong>Вопрос 1.</strong> Какие предметы вы планируете сдавать на ЕГЭ?</p>
+              <input type="text" id="question1" name="quest1" placeholder="Введите список предметов через запятую">
 
               <!-- Вопрос 3 -->
-              <p><strong>Вопрос 3.</strong> Какой предмет вызывает у вас наибольшие трудности при подготовке?</p>
-              <input type="text" id="question3" name="question3" placeholder="Название предмета">
+              <p><strong>Вопрос 2.</strong> Какой предмет вызывает у вас наибольшие трудности при подготовке?</p>
+              <input type="text" id="question2" name="quest2" placeholder="Название предмета">
 
-              <!-- Вопрос 4 -->
-              <p><strong>Вопрос 4.</strong> Оцените уровень своей уверенности в успешной сдаче ЕГЭ:</p>
-              <select id="question4" name="question4">
-                <option value="">Выберите вариант...</option>
-                <option value="Очень уверен">Очень уверен</option>
-                <option value="Довольно уверен">Довольно уверен</option>
-                <option value="Не очень уверен">Не очень уверен</option>
-                <option value="Совсем не уверен">Совсем не уверен</option>
-              </select>
+<!--              Вопрос 4 -->
+<!--              <p><strong>Вопрос 4.</strong> Оцените уровень своей уверенности в успешной сдаче ЕГЭ:</p>-->
+<!--              <select id="question4" name="question4">-->
+<!--                <option value="">Выберите вариант...</option>-->
+<!--                <option value="Очень уверен">Очень уверен</option>-->
+<!--                <option value="Довольно уверен">Довольно уверен</option>-->
+<!--                <option value="Не очень уверен">Не очень уверен</option>-->
+<!--                <option value="Совсем не уверен">Совсем не уверен</option>-->
+<!--              </select>-->
 
               <!-- Вопрос 5 -->
-              <p><strong>Вопрос 5.</strong> Сколько времени в день вы обычно уделяете подготовке к ЕГЭ?</p>
-              <input type="text" id="question5" name="question5" placeholder="Пример: 2 часа, 4 часа и т.д.">
+              <p><strong>Вопрос 3.</strong> Сколько времени в день вы обычно уделяете подготовке к ЕГЭ?</p>
+              <input type="text" id="question3" name="quest3" placeholder="Пример: 2 часа, 4 часа и т.д.">
 
-              <!-- Вопрос 6 -->
-              <p><strong>Вопрос 6.</strong> Используете ли вы дополнительные ресурсы для подготовки (репетиторы, онлайн-курсы)?</p>
-              <select id="question6" name="question6">
+                <!-- Вопрос 6 -->
+            <p><strong>Вопрос 4.</strong> Используете ли вы дополнительные ресурсы для подготовки (репетиторы, онлайн-курсы)?</p>-->
+             <select id="question4" name="quest4">
                 <option value="">Выберите вариант...</option>
                 <option value="Да, репетитор">Да, репетитор</option>
                 <option value="Да, онлайн-курсы">Да, онлайн-курсы</option>
                 <option value="Нет, готовлюсь самостоятельно">Нет, готовлюсь самостоятельно</option>
               </select>
 
-              <!-- Вопрос 7 -->
-              <p><strong>Вопрос 7.</strong> Какие методы подготовки вам кажутся наиболее эффективными?</p>
-              <textarea id="question7" name="question7" rows="4" cols="50"></textarea>
+<!--               Вопрос 7 -->
+<!--              <p><strong>Вопрос 7.</strong> Какие методы подготовки вам кажутся наиболее эффективными?</p>-->
+<!--              <textarea id="question7" name="question7" rows="4" cols="50"></textarea>-->
+<!---->
+<!--              Вопрос 8 -->
+<!--              <p><strong>Вопрос 8.</strong> Какие факторы, по вашему мнению, могут повлиять на успешную сдачу ЕГЭ?</p>-->
+<!--              <input type="text" id="question8" name="question8" placeholder="Перечислите факторы через запятую">-->
+<!---->
+<!--              Вопрос 9 -->
+<!--              <p><strong>Вопрос 9.</strong> Есть ли у вас какие-то особые стратегии для успешного прохождения экзамена?</p>-->
+<!--              <textarea id="question9" name="question9" rows="4" cols="50"></textarea>-->
+<!---->
+<!--              Вопрос 10 -->
+<!--              <p><strong>Вопрос 10.</strong> Что бы вы посоветовали другим учащимся, которые готовятся к ЕГЭ?</p>-->
+<!--              <textarea id="question10" name="question10" rows="4" cols="50"></textarea>-->
 
-              <!-- Вопрос 8 -->
-              <p><strong>Вопрос 8.</strong> Какие факторы, по вашему мнению, могут повлиять на успешную сдачу ЕГЭ?</p>
-              <input type="text" id="question8" name="question8" placeholder="Перечислите факторы через запятую">
-
-              <!-- Вопрос 9 -->
-              <p><strong>Вопрос 9.</strong> Есть ли у вас какие-то особые стратегии для успешного прохождения экзамена?</p>
-              <textarea id="question9" name="question9" rows="4" cols="50"></textarea>
-
-              <!-- Вопрос 10 -->
-              <p><strong>Вопрос 10.</strong> Что бы вы посоветовали другим учащимся, которые готовятся к ЕГЭ?</p>
-              <textarea id="question10" name="question10" rows="4" cols="50"></textarea>
+                <div class="w-100"></div>
+                <div class="mb-3 col-12 col-md-4">
+                    <button type="submit" class="btn btn-danger" name="button-sub">Отправить</button>
             </form>
           </div>
 
