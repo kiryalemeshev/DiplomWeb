@@ -95,14 +95,24 @@
               <p><strong>Вопрос 3.</strong> Сколько времени в день вы обычно уделяете подготовке к ЕГЭ?</p>
               <input type="text" id="question3" name="quest3" placeholder="Пример: 2 часа, 4 часа и т.д.">
 
+
+                <p><strong>Вопрос 4.</strong> Какой язык программирования вы знаете?</p><br>
+                <label><input type="checkbox" name="quest5" value="JavaScript"> JS</label><br>
+                <label><input type="checkbox" name="quest6" value="C++"> C++</label><br>
+                <label><input type="checkbox" name="quest7" value="PHP"> PHP</label><br>
+
                 <!-- Вопрос 6 -->
-            <p><strong>Вопрос 4.</strong> Используете ли вы дополнительные ресурсы для подготовки (репетиторы, онлайн-курсы)?</p>-->
+            <p><strong>Вопрос 5.</strong> Используете ли вы дополнительные ресурсы для подготовки (репетиторы, онлайн-курсы)?</p>
              <select id="question4" name="quest4">
                 <option value="">Выберите вариант...</option>
                 <option value="Да, репетитор">Да, репетитор</option>
                 <option value="Да, онлайн-курсы">Да, онлайн-курсы</option>
                 <option value="Нет, готовлюсь самостоятельно">Нет, готовлюсь самостоятельно</option>
-              </select>
+              </select><br>
+
+
+
+
 
 <!--               Вопрос 7 -->
 <!--              <p><strong>Вопрос 7.</strong> Какие методы подготовки вам кажутся наиболее эффективными?</p>-->
