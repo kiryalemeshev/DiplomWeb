@@ -110,6 +110,12 @@
                 <option value="Нет, готовлюсь самостоятельно">Нет, готовлюсь самостоятельно</option>
               </select><br>
 
+                <p><strong>Вопрос 6.</strong> Какой язык программирования вы не знаете?</p><br>
+                <label><input type="radio" name="quest8" value="JavaScript"> C++</label><br>
+                <label><input type="radio" name="quest8" value="C++"> 1C</label><br>
+                <label><input type="radio" name="quest8" value="PHP"> С#</label><br>
+
+
 
 
 
@@ -130,9 +136,14 @@
 <!--              <p><strong>Вопрос 10.</strong> Что бы вы посоветовали другим учащимся, которые готовятся к ЕГЭ?</p>-->
 <!--              <textarea id="question10" name="question10" rows="4" cols="50"></textarea>-->
 
+
+
                 <div class="w-100"></div>
                 <div class="mb-3 col-12 col-md-4">
-                    <button type="submit" class="btn btn-danger" name="button-sub">Отправить</button>
+                    <button onclick="Message()" type="submit" class="btn btn-danger" name="button-sub">Отправить</button>
+                    <script>
+                        function Message() { alert("Спасибо за ответ!"); }
+                    </script>
             </form>
           </div>
 

@@ -29,7 +29,7 @@ include "app/database/db.php";
 
 $questions = [];
 
-foreach (range(1, 7) as $i) {
+foreach (range(1, 8) as $i) {
     $key = "quest$i";
     $questions[$key] = isset($_POST[$key]) ? trim($_POST[$key]) : '';
 }
@@ -41,7 +41,8 @@ $post = [
     'question4' => $questions['quest4'],
     'question5' => $questions['quest5'],
     'question6' => $questions['quest6'],
-    'question7' => $questions['quest7']
+    'question7' => $questions['quest7'],
+    'question8' => $questions['quest8']
 ];
 
 $id = insert("vstup_isp", $post);
