@@ -288,3 +288,11 @@ header ul li ul li a{
     transition: all .3s;
 }
 
+/*
+FORMS
+*/
+
+form div.err{
+    color: crimson;
+
+}
