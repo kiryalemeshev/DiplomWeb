@@ -1,8 +1,10 @@
 <?php
-include "app/database/db.php";
+include __DIR__.'/../../app/database/db.php';
 
 
 $errMsg = '';
+
+
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
 
@@ -19,26 +21,29 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
     }elseif ($passF !== $passS)
     {
         $errMsg = "Пароли в обоих полях должны совпадать!!!";
-    }
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if (!empty($existence['email']) && $existence['email'] === $email){
+            $errMsg = "Пользователь с такой почтой уже существует!";
+        }else{
+            $pass = password_hash($passF, PASSWORD_DEFAULT);
+            $post =  [
+                'admin' => $admin,
+                'username' => $login,
+                'email' => $email,
+                'password' => $pass
 
-    else{
-        $pass = password_hash($passF, PASSWORD_DEFAULT);
-        $post =  [
-            'admin' => $admin,
-            'username' => $login,
-            'email' => $email,
-            'password' => $pass
+            ];
 
-        ];
-
-        //$id = insert("users",$post);
-        tt($post);
+            $id = insert("users",$post);
+            $errMsg = "Пользователь " . "<strong>" . $login . "</strong>" .  " успешно зарегистрирован!";
+        }
     }
 
     //$last_row = selectOne("users",["id"=>$id]);
 
 } else {
-    echo 'GET';
+
     $login = '';
     $email = '';
 }
