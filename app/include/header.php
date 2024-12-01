@@ -20,14 +20,27 @@
                             Услуги
                         </a></li>
                     <li>
-                        <a href="#">
-                            <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
-                            Кабинет
-                        </a>
-                        <ul>
-                            <li><a href="log.php">Админ панель</a></li>
-                            <li><a href="log.php">Выход</a></li>
-                        </ul>
+                        <?php if (isset($_SESSION['id'])): ?>
+                            <a href="#">
+                                <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
+                                <?php echo $_SESSION['login'];  ?>
+                            </a>
+                            <ul>
+                                <?php if ($_SESSION['admin']): ?>
+                                <li><a href="#">Админ панель</a></li>
+                                <?php endif; ?>
+                                <li><a href="#">Выход</a></li>
+                            </ul>
+                        <?php else: ?>
+                            <a href="<?php echo BASE_URL . log.php; ?>">
+                                <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
+                                Войти
+                                <ul>
+                                    <li><a href="<?php echo BASE_URL . reg.php; ?>">Регистрация</a></li>
+                                </ul>
+                            </a>
+                        <?php endif; ?>
+
                     </li>
                 </ul>
             </nav>

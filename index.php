@@ -1,11 +1,13 @@
-<?php include("path.php"); ?>
+<?php include("path.php");
+include 'app/database/db.php';
+?>
 
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Сбор данных</title>
+    <title>Анкетирование</title>
 
     <style>
         p {
