@@ -91,7 +91,7 @@ include 'app/database/db.php';
                 <div class="img col-12 col-md-4">
                     <a href="single.php">
                     <img src="assets/image/image_4.png" alt="img-thumbnail">
-                    </a>>
+                    </a>
                 </div>
             <div class="post_text col-12 col-md-8">
                 <h3>

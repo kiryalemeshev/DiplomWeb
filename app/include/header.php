@@ -29,14 +29,14 @@
                                 <?php if ($_SESSION['admin']): ?>
                                 <li><a href="#">Админ панель</a></li>
                                 <?php endif; ?>
-                                <li><a href="#">Выход</a></li>
+                                <li><a href="<?php echo BASE_URL . "logout.php"; ?>">Выход</a></li>
                             </ul>
                         <?php else: ?>
-                            <a href="<?php echo BASE_URL . log.php; ?>">
+                            <a href="<?php echo BASE_URL . "log.php"; ?>">
                                 <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
                                 Войти
                                 <ul>
-                                    <li><a href="<?php echo BASE_URL . reg.php; ?>">Регистрация</a></li>
+                                    <li><a href="<?php echo BASE_URL . "reg.php"; ?>">Регистрация</a></li>
                                 </ul>
                             </a>
                         <?php endif; ?>

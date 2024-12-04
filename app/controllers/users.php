@@ -6,7 +6,28 @@ $errMsg = '';
 
 
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
+// Функция для аутентификации пользователя
+function userAuth($user)
+{
+        $_SESSION['id'] = $user['id'];
+        $_SESSION['login'] = $user['username'];
+        $_SESSION['admin'] = $user['admin'];
+
+        // Проверка на наличие прав администратора
+        if ($_SESSION['admin']) {
+            // Перенаправляем админа на страницу администрирования
+            header('Location: ' . BASE_URL . "admin/admin.php");
+        } else {
+            // Перенаправляем обычного пользователя на главную страницу
+            header('Location: ' . BASE_URL);
+        }
+    }
+
+
+
+// Код для регистрации
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-reg'])){
+
 
     $admin = 0;
     $login = trim($_POST['login']);
@@ -37,17 +58,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 
             $id = insert("users",$post);
             $user = selectOne('users', ['id' => $id]);
-
-
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['login'] = $user['username'];
-            $_SESSION['admin'] = $user['admin'];
-
-            if($_SESSION['admin']){
-                header('Location: ' . BASE_URL . admin/admin.php);
-            }else{
-                header('Location: ' . BASE_URL);
-            }
+            userAuth($user);
 
 
 
@@ -64,3 +75,26 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
 }
 
  //$pass = password_hash($_POST['pass-second'] , PASSWORD_DEFAULT);
+
+// Код для авторизации
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-log'])) {
+    $email = trim($_POST['mail']);
+    $pass = trim($_POST['password']);
+
+
+
+    if($email === '' || $pass === '') {
+        $errMsg = "Не все поля заполнены!";
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if ($existence && password_verify($pass, $existence['password'])) {
+            userAuth($existence);
+
+        }else{
+            $errMsg = "Почта либо пароль введены неверно!";
+        }
+    }
+
+}else{
+    $email = '';
+}
