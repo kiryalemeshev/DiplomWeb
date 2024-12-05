@@ -49,7 +49,7 @@
         какие предметы ЕГЭ будут наиболее сдаваемы при поступлении в Вуз.</h2>
       <div class="single_post row">
         <div class="img col-12 ">
-          <img src="assets/image/image_6.png" alt="img-thumbnail">
+          <img src="assets/image/image_6.png" alt="img-thumbnail" style="width: 1200px; height: 400px; border-radius: 10px;">
 
         </div>
           <div class="info">

@@ -82,11 +82,40 @@ include 'app/database/db.php';
 
 
 <!--Блок Main-->
+
+
+
+
 <div class="container">
     <div class="content-row">
         <!--main content-->
         <div class="main-content col-md-9 col-12">
             <h2>Последние опросы</h2>
+
+
+            <div class="post row">
+                <div class="img col-12 col-md-4">
+                    <a href="DaysDoor.php">
+                        <img src="assets/image/openDoor.jpg" alt="img-thumbnail" style="width: 300px; height: 170px;" >
+                    </a>
+                </div>
+                <div class="post_text col-12 col-md-8">
+                    <h3>
+                        <a href="DaysDoor.php">День открытых дверей...</a>
+
+                    </h3>
+
+                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Приёмная комиссия </p>
+                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 05.12.2024 </p>
+                    <p class="preview-text">
+                        Мы хотим узнать вас поближе и надеемся, что День открытых дверей станет отличным началом нашего общения.
+                        Мы готовы поделиться с вами всеми секретами Нашего успеха.
+                    </p>
+
+                </div>
+            </div>
+
+
             <div class="post row">
                 <div class="img col-12 col-md-4">
                     <a href="single.php">

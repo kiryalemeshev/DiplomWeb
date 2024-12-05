@@ -35,10 +35,11 @@
                             <a href="<?php echo BASE_URL . "log.php"; ?>">
                                 <img src="assets/icons/user.png" alt="Кабинет" style="width: 30px; height: 30px;" />
                                 Войти
+                            </a>
                                 <ul>
                                     <li><a href="<?php echo BASE_URL . "reg.php"; ?>">Регистрация</a></li>
                                 </ul>
-                            </a>
+
                         <?php endif; ?>
 
                     </li>
