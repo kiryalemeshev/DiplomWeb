@@ -21,7 +21,7 @@ include "app/controllers/users.php";
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-  <link rel="icon" type="image/png" href="assets/icons/icon.png">
+  <link rel="icon" type="image/png" href="assets/icons/logo_main.png">
 
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">

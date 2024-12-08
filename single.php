@@ -23,7 +23,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-  <link rel="icon" type="image/png" href="assets/icons/icon.png">
+  <link rel="icon" type="image/png" href="assets/icons/logo_main.png">
 
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +53,7 @@
 
         </div>
           <div class="info">
-            <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
+            <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
             <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
           </div>
         <div class="single_post_text col-12 ">

@@ -20,7 +20,7 @@ include 'app/database/db.php';
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-    <link rel="icon" type="image/png" href="assets/icons/icon.png">
+    <link rel="icon" type="image/png" href="assets/icons/logo_main.png">
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,6 +47,13 @@ include 'app/database/db.php';
 
         <div class="carousel-inner">
             <div class="carousel-item active">
+                <img src="assets/image/open.png" class="d-block w-100" alt="..." >
+                <div class="carousel-caption d-none d-md-block">
+                    <h5><a href="DaysDoor.php">Перейти</a></h5>
+
+                </div>
+            </div>
+            <div class="carousel-item">
                 <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="single.php">Перейти</a></h5>
@@ -105,8 +112,8 @@ include 'app/database/db.php';
 
                     </h3>
 
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Приёмная комиссия </p>
-                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 05.12.2024 </p>
+                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Приёмная комиссия </p>
+                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 17.11.2024 </p>
                     <p class="preview-text">
                         Мы хотим узнать вас поближе и надеемся, что День открытых дверей станет отличным началом нашего общения.
                         Мы готовы поделиться с вами всеми секретами Нашего успеха.
@@ -128,7 +135,7 @@ include 'app/database/db.php';
 
                 </h3>
 
-                <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
+                <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
                 <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
                 <p class="preview-text">
                     Мы предлагаем вам пройти небольшой опрос, который поможет нам определить,
@@ -149,7 +156,7 @@ include 'app/database/db.php';
 
                     </h3>
 
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Auhor Kirra </p>
+                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
                     <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
                     <p class="preview-text">
                         Мы хотим узнать больше о том, чем вы интересуетесь помимо учебы.
