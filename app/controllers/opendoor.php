@@ -20,7 +20,7 @@
 //        'question7' => $question7
 //    ];
 //
-//    $id = insert("vstup_isp",$post);
+//    $id = insert("vstup_isp",$posts);
 //
 //}
 

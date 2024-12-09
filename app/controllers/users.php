@@ -16,7 +16,7 @@ function userAuth($user)
         // Проверка на наличие прав администратора
         if ($_SESSION['admin']) {
             // Перенаправляем админа на страницу администрирования
-            header('Location: ' . BASE_URL . "admin/admin.php");
+            header('Location: ' . BASE_URL . "admin/posts/index.php");
         } else {
             // Перенаправляем обычного пользователя на главную страницу
             header('Location: ' . BASE_URL);

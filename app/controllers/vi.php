@@ -10,7 +10,7 @@
 //    $question6 = $_POST['quest6'];
 //    $question7 = $_POST['quest7'];
 //
-//    $post = [
+//    $posts = [
 //        'question1' => $question1,
 //        'question2' => $question2,
 //        'question3' => $question3,
@@ -20,7 +20,7 @@
 //        'question7' => $question7
 //    ];
 //
-//    $id = insert("vstup_isp",$post);
+//    $id = insert("vstup_isp",$posts);
 //
 //}
 
