@@ -148,7 +148,13 @@ include "app/controllers/opendoor.php";
             border: 1px solid #000;
             padding: 10px;
             margin-bottom: 20px;
+
+
+
         }
+
+
+
 
     </style>
 

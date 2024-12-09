@@ -12,12 +12,145 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Сбор данных</title>
 
-  <style>
-    p {
-      display: inline-block;
-      margin: 0; /* Убираем стандартные отступы у параграфов */
-    }
-  </style>
+    <style>
+        p {
+            display: inline-block;
+            margin: 0; /* Убираем стандартные отступы у параграфов */
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        /* Checkbox */
+        .checkboxes {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .checkboxes li {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-container {
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkbox-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 15px;
+            width: 15px;
+            background-color: #fff; /* Цвет фона чекбокса */
+            border: 2px solid #555; /* Цвет и толщина границы */
+            border-radius: 50%;     /* Скругление углов */
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark {
+            background-color: #004080; /* Темный синий цвет */
+            border-color: #004080;      /* Цвет границы остаётся тем же, как и фон */
+        }
+
+
+        .checkbox-checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark::after {
+            display: block;
+        }
+
+        .checkbox-container .checkbox-checkmark::after {
+            left: 5px;
+            top: 1px;
+            width: 5px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
+
+        /* RadioBtn */
+
+        .radiobuttons {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .radiobuttons li {
+            margin-bottom: 10px;
+        }
+
+        .radiobutton-container {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .radiobutton-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .radiobutton-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border: 2px solid #555;
+            border-radius: 50%;
+        }
+
+        .radiobutton-container input:checked ~ .radiobutton-checkmark {
+            background-color: #004080;
+            border-color: #004080;
+        }
+
+        .radiobutton-checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .radiobutton-container input:checked ~ .radiobutton-checkmark::after {
+            display: block;
+        }
+
+        .radiobutton-container .radiobutton-checkmark::after {
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        .frame {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+    </style>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -63,78 +196,165 @@
             <p>Пожалуйста, ответьте на следующие вопросы:</p>
 
             <form action="single.php" method="post">
-<!--                Вопрос 1 -->
-<!--              <p><strong>Вопрос 1.</strong> Как вы оцениваете свою подготовку к ЕГЭ?</p>-->
-<!--              <select id="question1" name="question1">-->
-<!--                <option value="">Выберите вариант...</option>-->
-<!--                <option value="Отличная">Отличная</option>-->
-<!--                <option value="Хорошая">Хорошая</option>-->
-<!--                <option value="Удовлетворительная">Удовлетворительная</option>-->
-<!--                <option value="Неудовлетворительная">Неудовлетворительная</option>-->
-<!--              </select>-->
 
-              <!-- Вопрос 2 -->
-              <p><strong>Вопрос 1.</strong> Какие предметы вы планируете сдавать на ЕГЭ?</p>
-              <input type="text" id="question1" name="quest1" placeholder="Введите список предметов через запятую">
+                <!-- Вопрос 1 -->
+                <div class="frame">
+                    <div class="question">
+                        <p><strong>Вопрос 1.</strong>
+                            Что является основной целью вашего поступления в университет?</p>
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest1" value="Получение диплома">
+                                    <span class="checkbox-checkmark"></span>
+                                    Получение диплома
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest2" value="Приобретение новых знаний и навыков">
+                                    <span class="checkbox-checkmark"></span>
+                                    Приобретение новых знаний и навыков
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest3" value="Расширение круга общения">
+                                    <span class="checkbox-checkmark"></span>
+                                    Расширение круга общения
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest4" value="Возможность заниматься наукой и исследованиями">
+                                    <span class="checkbox-checkmark"></span>
+                                    Возможность заниматься наукой и исследованиями
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-              <!-- Вопрос 3 -->
-              <p><strong>Вопрос 2.</strong> Какой предмет вызывает у вас наибольшие трудности при подготовке?</p>
-              <input type="text" id="question2" name="quest2" placeholder="Название предмета">
+                <!-- Вопрос 2 -->
+                <div class="frame">
+                    <p><strong>Вопрос 2.</strong> Какие предметы были любимыми в школе?</p>
+                    <input type="text" id="question1" name="quest5" placeholder="Введите до 3-х предметов...">
+                </div>
 
-<!--              Вопрос 4 -->
-<!--              <p><strong>Вопрос 4.</strong> Оцените уровень своей уверенности в успешной сдаче ЕГЭ:</p>-->
-<!--              <select id="question4" name="question4">-->
-<!--                <option value="">Выберите вариант...</option>-->
-<!--                <option value="Очень уверен">Очень уверен</option>-->
-<!--                <option value="Довольно уверен">Довольно уверен</option>-->
-<!--                <option value="Не очень уверен">Не очень уверен</option>-->
-<!--                <option value="Совсем не уверен">Совсем не уверен</option>-->
-<!--              </select>-->
+                <!-- Вопрос 3 -->
+                <div class="frame">
+                    <div class="question">
+                        <p><strong>Вопрос 3.</strong>
+                            Какие качества, на ваш взгляд, наиболее важны для успешной учебы в университете?</p>
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest6" value="Усидчивость и внимательность">
+                                    <span class="checkbox-checkmark"></span>
+                                    Усидчивость и внимательность
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest7" value="Креативность и нестандартное мышление">
+                                    <span class="checkbox-checkmark"></span>
+                                    Креативность и нестандартное мышление
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest8" value="Коммуникабельность и умение работать в команде">
+                                    <span class="checkbox-checkmark"></span>
+                                    Коммуникабельность и умение работать в команде
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest9" value="Самостоятельность и ответственность">
+                                    <span class="checkbox-checkmark"></span>
+                                    Самостоятельность и ответственность
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-              <!-- Вопрос 5 -->
-              <p><strong>Вопрос 3.</strong> Сколько времени в день вы обычно уделяете подготовке к ЕГЭ?</p>
-              <input type="text" id="question3" name="quest3" placeholder="Пример: 2 часа, 4 часа и т.д.">
+                <!-- Вопрос 4 -->
+                <div class="frame">
+                    <div class="question">
+                        <p><strong>Вопрос 4.</strong>
+                            Что вас больше всего привлекает в выбранной вами специальности?</p>
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest10" value="Перспективы карьерного роста">
+                                    <span class="checkbox-checkmark"></span>
+                                    Перспективы карьерного роста
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest11" value="Интерес к предмету">
+                                    <span class="checkbox-checkmark"></span>
+                                    Интерес к предмету
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest12" value="Возможность самореализации и творчестве">
+                                    <span class="checkbox-checkmark"></span>
+                                    Возможность самореализации и творчества
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest13" value="Высокий спрос на специалистов в этой области">
+                                    <span class="checkbox-checkmark"></span>
+                                    Высокий спрос на специалистов в этой области
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
+                <!-- Вопрос 5 -->
+                <div class="frame">
+                    <div class="question">
+                        <p><strong>Вопрос 5.</strong>
+                            Каким образом вы планируете использовать полученные знания после окончания университета?</p>
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest14" value="Найти работу по специальности">
+                                    <span class="checkbox-checkmark"></span>
+                                    Найти работу по специальности
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest15" value="Продолжить обучение в магистратуре или аспирантуре">
+                                    <span class="checkbox-checkmark"></span>
+                                    Продолжить обучение в магистратуре или аспирантуре
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest16" value="Открыть собственное дело">
+                                    <span class="checkbox-checkmark"></span>
+                                    Открыть собственное дело
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" name="quest17" value="Заниматься научной деятельностью">
+                                    <span class="checkbox-checkmark"></span>
+                                    Заниматься научной деятельностью
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                <p><strong>Вопрос 4.</strong> Какой язык программирования вы знаете?</p><br>
-                <label><input type="checkbox" name="quest5" value="JavaScript"> JS</label><br>
-                <label><input type="checkbox" name="quest6" value="C++"> C++</label><br>
-                <label><input type="checkbox" name="quest7" value="PHP"> PHP</label><br>
-
-                <!-- Вопрос 6 -->
-            <p><strong>Вопрос 5.</strong> Используете ли вы дополнительные ресурсы для подготовки (репетиторы, онлайн-курсы)?</p>
-             <select id="question4" name="quest4">
-                <option value="">Выберите вариант...</option>
-                <option value="Да, репетитор">Да, репетитор</option>
-                <option value="Да, онлайн-курсы">Да, онлайн-курсы</option>
-                <option value="Нет, готовлюсь самостоятельно">Нет, готовлюсь самостоятельно</option>
-              </select><br>
-
-                <p><strong>Вопрос 6.</strong> Какой язык программирования вы не знаете?</p><br>
-                <label><input type="radio" name="quest8" value="JavaScript"> C++</label><br>
-                <label><input type="radio" name="quest8" value="C++"> 1C</label><br>
-                <label><input type="radio" name="quest8" value="PHP"> С#</label><br>
-
-
-
-
-
-
-<!--               Вопрос 7 -->
-<!--              <p><strong>Вопрос 7.</strong> Какие методы подготовки вам кажутся наиболее эффективными?</p>-->
-<!--              <textarea id="question7" name="question7" rows="4" cols="50"></textarea>-->
-<!---->
-<!--              Вопрос 8 -->
-<!--              <p><strong>Вопрос 8.</strong> Какие факторы, по вашему мнению, могут повлиять на успешную сдачу ЕГЭ?</p>-->
-<!--              <input type="text" id="question8" name="question8" placeholder="Перечислите факторы через запятую">-->
-<!---->
-<!--              Вопрос 9 -->
-<!--              <p><strong>Вопрос 9.</strong> Есть ли у вас какие-то особые стратегии для успешного прохождения экзамена?</p>-->
-<!--              <textarea id="question9" name="question9" rows="4" cols="50"></textarea>-->
-<!---->
-<!--              Вопрос 10 -->
-<!--              <p><strong>Вопрос 10.</strong> Что бы вы посоветовали другим учащимся, которые готовятся к ЕГЭ?</p>-->
-<!--              <textarea id="question10" name="question10" rows="4" cols="50"></textarea>-->
 
 
 
