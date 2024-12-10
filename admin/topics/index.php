@@ -38,30 +38,14 @@ include '../../app/database/db.php';
 <?php  include "../../app/include/header-admin.php"; ?>
 
 <div class="container">
-    <div class = "row">
-
-        <div class = "sidebar col-3">
-
-            <ul>
-                <li>
-                    <a href="">Записи</a>
-                </li>
-                <li>
-                    <a href="">Пользователи</a>
-                </li>
-                <li>
-                    <a href="">Категории</a>
-                </li>
-            </ul>
-
-        </div>
+    <?php include "../../app/include/sidebar-admin.php";?>
 
 
         <div class="posts col-9">
             <div class="buttons row">
-                <a href="create.php" class="col-3 btn btn-success">Создать категорию</a>
+                <a href="<?php echo BASE_URL . "admin/topics/create.php";?>" class="col-3 btn btn-success">Создать</a>
                 <span  class="col-1"> </span>
-                <a href="index.php" class="col-3 btn btn-primary">Управлять категориями</a>
+                <a href="<?php echo BASE_URL . "admin/topics/index.php";?>" class="col-3 btn btn-primary">Редактировать</a>
 
             </div>
 
