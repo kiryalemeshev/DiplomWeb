@@ -44,13 +44,13 @@ include '../../app/database/db.php';
 
             <ul>
                 <li>
-                    <a href="">Записи</a>
+                    <a href="../../admin/posts/index.php">Записи</a>
                 </li>
                 <li>
-                    <a href="">Пользователи</a>
+                    <a href="../../admin/users/index.php">Пользователи</a>
                 </li>
                 <li>
-                    <a href="">Категории</a>
+                    <a href="../../admin/topics/index.php">Категории</a>
                 </li>
             </ul>
 
