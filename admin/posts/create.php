@@ -28,13 +28,15 @@ include '../../app/database/db.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.css" />
-    <script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/ckeditor5.umd.js"></script>
+    <script src="https://cdn.ckeditor.com/4.20.0/standard-all/ckeditor.js"></script>
+
 
 
 
 </head>
 <body>
+
+
 
 
 <?php  include "../../app/include/header-admin.php"; ?>
@@ -64,8 +66,8 @@ include '../../app/database/db.php';
                             <input type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                         </div>
                     <div class="col ">
-                        <label for="editor" class="form-label">Содержимое записи</label>
-                        <textarea  id="editor" class="form-control"  rows="6"></textarea>
+                        <label for="editor1" class="form-label">Содержимое записи</label>
+                        <textarea  id="editor1" class="form-control"  rows="6"></textarea>
                     </div>
                     <div class="input-group col mb-4">
                         <input type="file" class="form-control" id="inputGroupFile02">
@@ -99,6 +101,8 @@ include '../../app/database/db.php';
 
 
 
-<script src="../../assets/js/scripts.js"></script>
+<script>
+    CKEDITOR.replace('editor1');
+</script>
 </body>
 </html>
