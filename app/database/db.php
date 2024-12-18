@@ -8,6 +8,7 @@ function tt($value){
     echo '<pre>';
     print_r($value);
     echo '</pre>';
+    exit();
 }
 
 //Проверка выполнения запроса к БД
@@ -149,7 +150,7 @@ function delete($table, $id){
     //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ivan', 'ivan4@yandex.ru', 'ivan4');
 
 
-    $sql = "DELETE FROM $table WHERE id = $id";
+    $sql = "DELETE FROM $table WHERE id =". $id;
 
     $query = $pdo->prepare($sql);
     $query->execute();
