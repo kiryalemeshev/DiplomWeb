@@ -149,8 +149,6 @@ include "app/controllers/opendoor.php";
             padding: 10px;
             margin-bottom: 20px;
 
-
-
         }
 
 
@@ -324,7 +322,7 @@ include "app/controllers/opendoor.php";
                                     </li>
                                     <li>
                                         <label class="radiobutton-container">
-                                            <input type="radio" name="Quest13" value="Нет">
+                                            <input type="radio" name="Quest12" value="Нет">
                                             <span class="radiobutton-checkmark"></span>
                                             Нет
                                         </label>

@@ -53,7 +53,7 @@ $post = [
 
     'Question_6' => $questions['Quest12'],
 
-    'Question_7' => $questions['Quest13'],
+
 
     'Question_8_1' => $questions['Quest14'],
     'Question_8_2' => $questions['Quest15'],
