@@ -11,7 +11,7 @@
                             <img src="assets/icons/home.png" alt="Главная" style="width: 30px; height: 30px;" />
                             Главная
                         </a></li>
-                    <li><a href="#">
+                    <li><a href="/DiplomWeb/contact_info.php">
                             <img src="assets/icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
                             Контакты приемной комиссии
                         </a></li>

@@ -37,6 +37,7 @@ include "app/controllers/opendoor.php";
             padding-left: 25px;
             cursor: pointer;
             user-select: none;
+            display: inline-block; /* Чтобы label занимал только необходимое место */
         }
 
         .checkbox-container input {
@@ -55,14 +56,13 @@ include "app/controllers/opendoor.php";
             width: 15px;
             background-color: #fff; /* Цвет фона чекбокса */
             border: 2px solid #555; /* Цвет и толщина границы */
-            border-radius: 50%;     /* Скругление углов */
+            border-radius: 0;       /* Убираем скругление углов */
         }
 
         .checkbox-container input:checked ~ .checkbox-checkmark {
             background-color: #004080; /* Темный синий цвет */
-            border-color: #004080;      /* Цвет границы остаётся тем же, как и фон */
+            border-color: #004080;      /* Цвет границы остается тем же, как и фон */
         }
-
 
         .checkbox-checkmark::after {
             content: "";
@@ -75,12 +75,12 @@ include "app/controllers/opendoor.php";
         }
 
         .checkbox-container .checkbox-checkmark::after {
-            left: 5px;
-            top: 1px;
+            left: 4px;
+            top: 1px; /* Немного выше */
             width: 5px;
-            height: 9px;
+            height: 10px;
             border: solid white;
-            border-width: 0 3px 3px 0;
+            border-width: 0 3px 3px 0; /* Толще границы для лучшей видимости */
             transform: rotate(45deg);
         }
 

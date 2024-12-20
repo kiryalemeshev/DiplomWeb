@@ -58,6 +58,7 @@ include '../../app/controllers/topics.php';
                 <h2>Управление категориями</h2>
                 <div class="col-1">ID</div>
                 <div class="col-5">Название</div>
+                <div class="col-2">Описание</div>
                 <div class="col-4">Управление</div>
 
             </div>
@@ -66,6 +67,7 @@ include '../../app/controllers/topics.php';
             <div class="row post">
                 <div class="id col-1"><?=$key + 1;?></div>
                 <div class="title col-5"><?=$topic['name'];?></div>
+                <div class="title col-2"><?=$topic['description'];?></div>
                 <div class="red col-2"><a href="edit.php?id=<?=$topic['id'];?>">edit</a></div>
                 <div class="del col-2"><a href="edit.php?del_id=<?=$topic['id'];?>">delete</a></div>
             </div>
