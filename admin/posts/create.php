@@ -60,6 +60,10 @@ include '../../app/controllers/posts.php';
                 <h2>Добавление опроса</h2>
             </div>
 
+            <div class="mb-12 col-12 col-md-12 err">
+                <p><?=$errMsg?></p>
+            </div>
+
             <div class="row add-post">
                 <form action="create.php" method="post">
                         <div class="col mb-4">
@@ -79,7 +83,15 @@ include '../../app/controllers/posts.php';
                             <option value="<?=$topic['id'];?>"><?=$topic['name'];?></option>
                         <?php endforeach; ?>
                     </select>
-                    <div class="col mb-4">
+
+                    <div class="form-check">
+                        <input name="publish" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Publish
+                        </label>
+                    </div><br>
+
+                    <div class="col col-6">
                         <button name="add_post" class="btn btn-primary" type="submit">Добавить запись</button>
                     </div>
                 </form>

@@ -158,5 +158,24 @@ function delete($table, $id){
 
 }
 
+// Выборка записей (опросы)с автором в админку
 
-
+    function selectAllFromPostsWithUsers($table1, $table2)
+    {
+        global $pdo;
+        $sql = "Select
+        
+        t1.id,
+        t1.title,
+        t1.img,
+        t1.content,
+        t1.status,
+        t1.id_topic,
+        t1.created_date,
+        t2.username
+         from $table1 as t1 join $table2 as t2 on t1.id_user = t2.id";
+        $query = $pdo->prepare($sql);
+        $query->execute();
+        dbCheckError($query);
+        return $query -> fetchAll();
+    }

@@ -1,5 +1,6 @@
 <?php include("../../path.php");
-include '../../app/database/db.php';
+
+include '../../app/controllers/posts.php';
 
 ?>
 
@@ -62,29 +63,22 @@ include '../../app/database/db.php';
 
             </div>
 
-            <div class="row post">
-                <div class="id col-1">1</div>
-                <div class="title col-5">Пример статьи</div>
-                <div class="author col-2">Kirra</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
-            </div>
+            <?php foreach ($postsAdm as $key => $post): ?>
 
             <div class="row post">
-                <div class="id col-1">2</div>
-                <div class="title col-5">Пример статьи</div>
-                <div class="author col-2">Kirra</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
-            </div>
+                <div class="id col-1"><?=$key + 1;?></div>
+                <div class="title col-5"><?=$post['title'];?></div>
+                <div class="author col-2"><?=$post['username'];?></div>
+                <div class="red col-1"><a href="">edit</a></div>
+                <div class="del col-1"><a href="">delete</a></div>
+                <?php if ($post['status']): ?>
+                <div class="status col-2"><a href="">unpublish</a></div>
+                <?php else: ?>
+                <div class="status col-2"><a href="">publish</a></div>
+                <?php endif; ?>
 
-            <div class="row post">
-                <div class="id col-1">3</div>
-                <div class="title col-5">Пример статьи</div>
-                <div class="author col-2">Kirra</div>
-                <div class="red col-2"><a href="">edit</a></div>
-                <div class="del col-2"><a href="">delete</a></div>
             </div>
+            <?php endforeach; ?>
 
         </div>
 
