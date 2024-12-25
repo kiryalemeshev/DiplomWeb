@@ -17,6 +17,20 @@
             display: inline-block;
             margin: 0; /* Убираем стандартные отступы у параграфов */
         }
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+
+        .checkbox-container label {
+            font-size: 14px;
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -72,7 +86,14 @@
         </div>
         <div class="w-100"></div>
         <div class="mb-3 col-12 col-md-4">
-            <button type="submit" class="btn btn-danger" name="button-reg">Регистрация</button>
+            <!-- Чекбокс и текст -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="termsCheckbox" required>
+                <label for="termsCheckbox">Обработка персональных данных</label>
+            </div>
+
+            <!-- Кнопка, которая блокируется до установки галочки -->
+            <button type="submit" class="btn btn-danger" name="button-reg" disabled>Регистрация</button>
             <a href="log.php">Войти</a>
         </div>
     </form>
@@ -86,5 +107,21 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+    const termsCheckbox = document.getElementById('termsCheckbox');
+    const submitButton = document.querySelector('[name="button-reg"]');
+
+    function toggleSubmitButton() {
+        if (termsCheckbox.checked) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    termsCheckbox.addEventListener('change', toggleSubmitButton);
+    toggleSubmitButton(); // Проверяем состояние чекбокса при загрузке страницы
+</script>
+
 </body>
 </html>

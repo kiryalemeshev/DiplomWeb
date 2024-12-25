@@ -213,3 +213,19 @@ create
 /*    margin: 2rem 0 ;*/
 
 /*}*/
+
+/*
+error msg
+*/
+
+.add-post .err{
+    padding: 1rem 0;
+    color: crimson;
+}
+
+.add-post .err ul{
+    list-style-type: none;
+    color: crimson;
+    padding-left: 10px;
+    font-weight: 500;
+}

@@ -7,7 +7,7 @@ if (!$_SESSION){
 
 
 
-$errMsg = '';
+$errMsg = [];
 $id ='';
 $title = '';
 $content = '';
@@ -23,27 +23,33 @@ $postsAdm = selectAllFromPostsWithUsers('posts','users');
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
 
 
-    if(!empty($_FILES['img']['name']))
-    {
+    if(!empty($_FILES['img']['name'])) {
 
         $imgName = time() . "_" . $_FILES['img']['name'];
         $fileTmpName = $_FILES['img']['tmp_name'];
         $fileType = $_FILES['img']['type'];
         $destination = ROOT_PATH . "\assets\image\posts\\" . $imgName;
 
-        if(strpos($fileType, 'image') === false){
-            die("Можно загружать только изображения!");
-        }
+        if (strpos($fileType, 'image') === false) {
+            array_push($errMsg,"Подгружаемый файл не является изображением!");
 
-        $result = move_uploaded_file($fileTmpName, $destination);
+        } else {
+            $result = move_uploaded_file($fileTmpName, $destination);
+            if ($result) {
+                $_POST['img'] = $imgName;
+            } else {
+                array_push($errMsg,"Ошибка загрузки изображения на сервер!");
+            }
+    }
 
-        if($result){
-            $_POST['img'] = $imgName;
-        }else{
-            $errMsg = "Ошибка загрузки изображения на сервер!";
-        }
+
+
+
+
+
+
     }else{
-        $errMsg = "Ошибка получения картинки!";
+        array_push($errMsg,"Ошибка получения картинки!");
     }
 
     $title = trim($_POST['title']);
@@ -54,9 +60,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
 
 
     if($title === '' || $content === '' || $topic === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg, "Не все поля заполнены!");
     }elseif (mb_strlen($title, 'UTF-8') < 7){
-        $errMsg = "Название опроса должно быть более 7-и символов!!!";
+        array_push($errMsg,"Название опроса должно быть более 7-и символов!!!");
     }else{
             $post =  [
                 'id_user' => $_SESSION['id'],

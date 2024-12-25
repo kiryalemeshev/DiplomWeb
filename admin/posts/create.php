@@ -60,18 +60,21 @@ include '../../app/controllers/posts.php';
                 <h2>Добавление опроса</h2>
             </div>
 
+            <div class="row add-post">
             <div class="mb-12 col-12 col-md-12 err">
-                <p><?=$errMsg?></p>
+                <!-- Вывод массива с ошибками -->
+                <?php  include "../../app/helps/errorinfo.php"; ?>
+            </div>
             </div>
 
             <div class="row add-post">
                 <form action="create.php" method="post" enctype="multipart/form-data">
                         <div class="col mb-4">
-                            <input name= "title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
+                            <input value="<?=$title; ?>" name= "title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                         </div>
                     <div class="col ">
                         <label for="editor1" class="form-label">Содержимое записи</label>
-                        <textarea name="content" id="editor1" class="form-control"  rows="6"></textarea>
+                        <textarea  name="content" id="editor1" class="form-control"  rows="6"><?=$content; ?> </textarea>
                     </div>
                     <div class="input-group col mb-4">
                         <input name="img" type="file" class="form-control" id="inputGroupFile02">
