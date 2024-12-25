@@ -15,10 +15,10 @@
                             <img src="assets/icons/mobile.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
                             Контакты приемной комиссии
                         </a></li>
-                    <li><a href="#">
-                            <img src="assets/icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />
-                            Услуги
-                        </a></li>
+<!--                    <li><a href="#">-->
+<!--                            <img src="assets/icons/usluga.png" alt="Контакты приемной комиссии" style="width: 30px; height: 30px;" />-->
+<!--                            Услуги-->
+<!--                        </a></li>-->
                     <li>
                         <?php if (isset($_SESSION['id'])): ?>
                             <a href="#">
