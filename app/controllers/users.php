@@ -2,7 +2,7 @@
 include __DIR__.'/../../app/database/db.php';
 
 
-$errMsg = '';
+$errMsg = [];
 
 
 
@@ -96,5 +96,53 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-log'])) {
     }
 
 }else{
+    $email = '';
+}
+
+// Код для добавления пользователя в админке
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['create-user'])){
+
+
+    $admin = 0;
+    $login = trim($_POST['login']);
+    $email = trim($_POST['mail']);
+    $passF = trim($_POST['pass-first']);
+    $passS = trim($_POST['pass-second']);
+
+    if($login === '' || $email === '' || $passF === ''){
+        array_push($errMsg,"Не все поля заполнены!");
+    }elseif (mb_strlen($login, 'UTF-8') < 2){
+        array_push($errMsg,"Логин должен быть более двух символов!!!");
+    }elseif ($passF !== $passS)
+    {
+        array_push($errMsg,"Пароли в обоих полях должны совпадать!!!");
+    }else{
+        $existence = selectOne('users', ['email' => $email]);
+        if (!empty($existence['email']) && $existence['email'] === $email){
+            array_push($errMsg,"Пользователь с такой почтой уже существует!");
+        }else{
+            $pass = password_hash($passF, PASSWORD_DEFAULT);
+            if (isset($_POST['admin'])) $admin = 1;
+
+            $user =  [
+                'admin' => $admin,
+                'username' => $login,
+                'email' => $email,
+                'password' => $pass
+
+            ];
+
+            $id = insert("users",$user);
+            $user = selectOne('users', ['id' => $id]);
+            userAuth($user);
+
+        }
+    }
+
+    //$last_row = selectOne("users",["id"=>$id]);
+
+} else {
+
+    $login = '';
     $email = '';
 }
