@@ -46,7 +46,7 @@ include "app/controllers/users.php";
     <h2 class="col-12">Авторизация</h2>
 
       <div class="mb-3 col-12 col-md-4 err">
-          <p><?= $errMsg ?></p>
+          <?php  include "app/helps/errorinfo.php"; ?>
       </div>
 
       <div class="w-100"></div>

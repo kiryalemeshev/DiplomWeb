@@ -23,7 +23,7 @@ function userAuth($user)
         }
     }
 
-
+$users = selectAll('users');
 
 // Код для регистрации
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-reg'])){
@@ -36,16 +36,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-reg'])){
     $passS = trim($_POST['pass-second']);
 
     if($login === '' || $email === '' || $passF === ''){
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg,"Не все поля заполнены!");
     }elseif (mb_strlen($login, 'UTF-8') < 2){
-        $errMsg = "Логин должен быть более двух символов!!!";
+        array_push($errMsg,"Логин должен быть более двух символов!!!");
     }elseif ($passF !== $passS)
     {
-        $errMsg = "Пароли в обоих полях должны совпадать!!!";
+        array_push($errMsg,"Пароли в обоих полях должны совпадать!!!");
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if (!empty($existence['email']) && $existence['email'] === $email){
-            $errMsg = "Пользователь с такой почтой уже существует!";
+            array_push($errMsg,"Пользователь с такой почтой уже существует!");
         }else{
             $pass = password_hash($passF, PASSWORD_DEFAULT);
             $post =  [
@@ -59,9 +59,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-reg'])){
             $id = insert("users",$post);
             $user = selectOne('users', ['id' => $id]);
             userAuth($user);
-
-
-
 
         }
     }
@@ -84,14 +81,14 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['button-log'])) {
 
 
     if($email === '' || $pass === '') {
-        $errMsg = "Не все поля заполнены!";
+        array_push($errMsg,"Не все поля заполнены!");
     }else{
         $existence = selectOne('users', ['email' => $email]);
         if ($existence && password_verify($pass, $existence['password'])) {
             userAuth($existence);
 
         }else{
-            $errMsg = "Почта либо пароль введены неверно!";
+            array_push($errMsg,"Почта либо пароль введены неверно!");
         }
     }
 
@@ -145,4 +142,70 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['create-user'])){
 
     $login = '';
     $email = '';
+}
+
+//Удаление пользователя в админке
+if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['delete_id'])){
+    $id = $_GET['delete_id'];
+    delete('users', $id);
+    header('location: ' . BASE_URL . 'admin/users/index.php');
+}
+
+
+
+//Редактирование пользователя через админку
+if ($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['edit_id'])) {
+    $user = selectOne('users', ['id' => $_GET['edit_id']]);
+
+    $id = $user['id'];
+    $admin = $user['admin'];
+    $username = $user['username'];
+    $email = $user['email'];
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update-user'])) {
+    $id = $_POST['id'];
+    $mail = trim($_POST['mail']);
+    $login = trim($_POST['login']);
+    $PassF = trim($_POST['pass-first']);
+    $PassS = trim($_POST['pass-second']);
+
+    $admin = isset($_POST['admin']) ? 1 : 0;
+
+    if ($login === '') {
+        array_push($errMsg, "Не все поля заполнены!");
+    } elseif (mb_strlen($login, 'UTF-8') < 2) {
+        array_push($errMsg, "Логин должен быть более 2-ух символов!!!");
+    } else {
+        if (empty($PassF) || empty($PassS)) {
+            if (isset($_POST['admin'])) {
+                $admin = 1;
+            }
+
+            $user = [
+                'admin' => $admin,
+                'username' => $login
+            ];
+            update('users', $id, $user);
+            header('Location: ' . BASE_URL . 'admin/users/index.php');
+        } else {
+            if ($PassF !== $PassS) {
+                array_push($errMsg, "Пароли в обоих полях должны совпадать!!!");
+            } else {
+                $pass = password_hash($PassF, PASSWORD_DEFAULT);
+                if (isset($_POST['admin'])) {
+                    $admin = 1;
+                }
+
+                $user = [
+                    'admin' => $admin,
+                    'username' => $login,
+                    'password' => $pass
+                ];
+
+                update('users', $id, $user);
+                header('Location: ' . BASE_URL . 'admin/users/index.php');
+            }
+        }
+    }
 }
