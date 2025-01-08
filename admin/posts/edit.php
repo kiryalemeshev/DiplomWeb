@@ -3,6 +3,7 @@
 include '../../app/controllers/posts.php';
 ?>
 
+
 <!doctype html>
 <html lang="ru">
 <head>
@@ -28,7 +29,7 @@ include '../../app/controllers/posts.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.ckeditor.com/4.20.0/standard-all/ckeditor.js"></script>
+
 
 
 
@@ -65,13 +66,23 @@ include '../../app/controllers/posts.php';
                     <input value="<?=$post['title']; ?>" name= "title" type="text" class="form-control" placeholder="Title" aria-label="Название статьи">
                 </div>
                 <div class="col ">
-                    <label for="editor1" class="form-label">Содержимое записи</label>
-                    <textarea  name="content" id="editor1" class="form-control"  rows="6"><?=$post['content']; ?> </textarea>
+                    <label  class="form-label">Содержимое записи</label>
+                    <textarea  name="content" id="text" class="form-control"  rows="6"><?=$post['content']; ?> </textarea>
                 </div>
+
+
                 <div class="input-group col mb-4">
-                    <input name="img" type="file" class="form-control" id="inputGroupFile02">
+                    <input name="img" type="file" class="form-control" id="inputGroupFile02" onchange="saveImage(this.files)">
                     <label class="input-group-text" for="inputGroupFile02">Upload</label>
                 </div>
+
+                <input type="hidden" name="image_data_url" id="imageDataUrl" value="">
+
+                <img id="previewImg" src="" alt="Uploaded Image" style="max-width: 100%; max-height: 200px;" />
+
+
+
+
                 <select name="topic" class="form-select mb-4" aria-label="Default select example">
 
 
@@ -117,9 +128,33 @@ include '../../app/controllers/posts.php';
 <!-- Добавление визуального редактора к ареа админки-->
 
 
-
 <script>
-    CKEDITOR.replace('editor1');
+    function saveImage(files) {
+        if (files && files.length > 0) {
+            const file = files[0];
+
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const dataURL = e.target.result;
+                localStorage.setItem('savedImage', dataURL);
+                document.getElementById('previewImg').src = dataURL;
+                document.getElementById('imageDataUrl').value = dataURL; // Запишем Data URL в скрытое поле формы
+            };
+
+            reader.readAsDataURL(file);
+        }
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const savedImage = localStorage.getItem('savedImage');
+
+        if (savedImage) {
+            document.getElementById('previewImg').src = savedImage;
+            document.getElementById('imageDataUrl').value = savedImage; // Установим значение скрытого поля из localStorage
+        }
+    });
 </script>
+
 </body>
 </html>

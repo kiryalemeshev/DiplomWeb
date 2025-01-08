@@ -179,3 +179,16 @@ function delete($table, $id){
         dbCheckError($query);
         return $query -> fetchAll();
     }
+
+
+// Выборка записей (опросы) с автором на главную
+
+function selectAllFromPostsWithUsersOnIndex($table1, $table2)
+{
+    global $pdo;
+    $sql = "Select p.*, u.username from $table1 as p join $table2 as u on p.id_user = u.id where p.status = 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query -> fetchAll();
+}

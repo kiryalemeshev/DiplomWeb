@@ -1,6 +1,9 @@
 <?php include("path.php");
 
 include 'app/controllers/topics.php';
+$posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
+
+
 ?>
 
 <!doctype html>
@@ -14,7 +17,10 @@ include 'app/controllers/topics.php';
         p {
             display: inline-block;
             margin: 0; /* Убираем стандартные отступы у параграфов */
+
         }
+
+
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -90,14 +96,12 @@ include 'app/controllers/topics.php';
 
 <!--Блок Main-->
 
-
-
-
 <div class="container">
     <div class="content-row">
         <!--main content-->
         <div class="main-content col-md-9 col-12">
             <h2>Последние опросы</h2>
+
 
 
             <div class="post row">
@@ -122,7 +126,6 @@ include 'app/controllers/topics.php';
                 </div>
             </div>
 
-
             <div class="post row">
                 <div class="img col-12 col-md-4">
                     <a href="single.php">
@@ -146,26 +149,27 @@ include 'app/controllers/topics.php';
 
             </div>
 
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <img src="assets/image/image_5.png" alt="img-thumbnail">
+            <?php foreach ($posts as $post) : ?>
+                <div class="post row">
+                    <div class="img col-12 col-md-4">
+                        <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>" class="img-thumbnail"  style="width: 300px; height: 170px;">
+                   </div>
+                    <div class="post_text col-12 col-md-8">
+                        <h3>
+                            <a href="<?=BASE_URL . 'singleTEST.php?post=' . $post['id']; ?>">
+                                <?=mb_strimwidth($post['title'], 0, 100, '...') ?>
+                            </a>
+                        </h3>
+
+                        <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> <?=$post['username'];?></p>
+                        <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> <?=$post['created_date'];?></p>
+                        <p class="preview-text">
+                            <?= mb_strimwidth($post['content'], 0, 150, '...' , 'UTF-8') ?>
+
+                        </p>
+                    </div>
                 </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="#">Увлечения и внеучебная деятельность</a>
-
-                    </h3>
-
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
-                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
-                    <p class="preview-text">
-                        Мы хотим узнать больше о том, чем вы интересуетесь помимо учебы.
-                        Ваши увлечения и внеучебная активность помогают нам лучше понимать вашу личность и потенциал.
-                    </p>
-
-                </div>
-
-            </div>
+            <?php endforeach; ?>
 
 
         </div>

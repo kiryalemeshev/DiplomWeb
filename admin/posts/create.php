@@ -28,7 +28,6 @@ include '../../app/controllers/posts.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.ckeditor.com/4.20.0/standard-all/ckeditor.js"></script>
 
 
 
@@ -116,8 +115,6 @@ include '../../app/controllers/posts.php';
 
 
 
-<script>
-    CKEDITOR.replace('editor1');
-</script>
+
 </body>
 </html>
