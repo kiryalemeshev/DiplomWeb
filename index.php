@@ -2,9 +2,11 @@
 
 include 'app/controllers/topics.php';
 $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
-
+$topTopic = selectTopTopicFromPostsOnIndex('posts');
 
 ?>
+
+
 
 <!doctype html>
 <html lang="en">
@@ -43,22 +45,24 @@ $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
 <?php include("app/include/header.php"); ?>
 
 <!--Блок карусели Start-->
-<div class="container">
+<div class="container" >
     <div class="row">
         <h2 class="slider-title">
             Популярные категории
         </h2>
     </div>
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" >
 
-        <div class="carousel-inner">
-            <div class="carousel-item active">
+
+        <div class="carousel-inner" >
+            <div class="carousel-item">
                 <img src="assets/image/open.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="DaysDoor.php">Перейти</a></h5>
 
                 </div>
             </div>
+
             <div class="carousel-item">
                 <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
@@ -66,21 +70,26 @@ $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
 
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="assets/image/image_2.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="">Перейти</a></h5>
 
+            <?php foreach ($topTopic as $key => $post) : ?>
+            <?php if($key == 0):?>
+                <div class="carousel-item active">
+                    <?php else:?>
+                    <div class="carousel-item">
+                        <?php endif;?>
+                     <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>"  class="d-block w-100"  >
+                     <div class="carousel-caption d-none d-md-block">
+                         <h5><a href="<?=BASE_URL . 'singleTEST.php?post=' . $post['id']; ?>">
+                                 <?=mb_strimwidth($post['title'], 0, 100, '...') ?>
+                             </a></h5>
+                     </div>
                 </div>
+                    <?php endforeach; ?>
             </div>
-            <div class="carousel-item">
-                <img src="assets/image/image_3.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="">Перейти</a></h5>
 
-                </div>
-            </div>
         </div>
+
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
