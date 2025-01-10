@@ -204,3 +204,18 @@ function selectTopTopicFromPostsOnIndex($table1)
     dbCheckError($query);
     return $query -> fetchAll();
 }
+
+// Поиск по заголовкам и содержимому (простой)
+
+function searchInTitleAndContent($text, $table1, $table2)
+{
+    $text = trim(strip_tags(stripcslashes(htmlspecialchars($text))));
+    global $pdo;
+    $sql = "Select p.*, u.username 
+    from $table1 as p join $table2 as u on p.id_user = u.id 
+    where p.status = 1 AND p.title like '%$text%' or p.content like '%$text%' ";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query -> fetchAll();
+}

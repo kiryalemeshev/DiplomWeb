@@ -1,15 +1,15 @@
 <?php include("path.php");
-
-include 'app/controllers/topics.php';
-$posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
-$topTopic = selectTopTopicFromPostsOnIndex('posts');
+include SITE_ROOT . "/app/database/db.php";
+if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['search-term'])){
+    $posts = searchInTitleAndContent($_POST['search-term'], 'posts' , 'users');
+}
 
 ?>
 
 
 
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +20,26 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
             display: inline-block;
             margin: 0; /* Убираем стандартные отступы у параграфов */
 
+        }
+        .main-content {
+            padding: 20px; /* Добавляем отступы для визуального разделения */
+        }
+
+        .post.row {
+            margin-bottom: 20px; /* Добавляем отступ снизу между постами */
+            display: flex; /* Включаем flexbox для выравнивания*/
+        }
+
+        .post .img {
+            display: flex; /* Flexbox для элемента img, для выравнивания внутри */
+            align-items: center; /* Выравниваем по вертикали*/
+            justify-content: center; /* центрируем по горизонтали */
+        }
+
+
+
+        .post .post_text {
+            padding-left: 15px; /* добавляем отступ слева для текста */
         }
 
 
@@ -44,72 +64,14 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 
 <?php include("app/include/header.php"); ?>
 
-<!--Блок карусели Start-->
-<div class="container" >
-    <div class="row">
-        <h2 class="slider-title">
-            Популярные категории
-        </h2>
-    </div>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" >
-
-
-        <div class="carousel-inner" >
-            <div class="carousel-item">
-                <img src="assets/image/open.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="DaysDoor.php">Перейти</a></h5>
-
-                </div>
-            </div>
-
-            <div class="carousel-item">
-                <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="single.php">Перейти</a></h5>
-
-                </div>
-            </div>
-
-            <?php foreach ($topTopic as $key => $post) : ?>
-            <?php if($key == 0):?>
-                <div class="carousel-item active">
-                    <?php else:?>
-                    <div class="carousel-item">
-                        <?php endif;?>
-                     <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>"  class="d-block w-100"  >
-                     <div class="carousel-caption d-none d-md-block">
-                         <h5><a href="<?=BASE_URL . 'singleTEST.php?post=' . $post['id']; ?>">
-                                 <?=mb_strimwidth($post['title'], 0, 100, '...') ?>
-                             </a></h5>
-                     </div>
-                </div>
-                    <?php endforeach; ?>
-            </div>
-
-        </div>
-
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-</div>
-<!--Блок карусели End-->
-
 
 <!--Блок Main-->
 
 <div class="container">
     <div class="content-row">
         <!--main content-->
-        <div class="main-content col-md-9 col-12">
-            <h2>Последние опросы</h2>
+        <div class="main-content  col-12">
+            <h2>Результаты поиска</h2>
 
 
 
@@ -183,30 +145,6 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
 
         </div>
 
-        <!--sliderbar content-->
-        <div class="sidebar col-md-3 col-12">
-
-            <div class="section search">
-                <h3>Поиск</h3>
-                <form action="search.php" method="post">
-                    <input type="text" name="search-term" class="text-input" placeholder="Введите искомое слово...">
-                </form>
-            </div>
-
-            <div class="section topics">
-                <h3>Категории</h3>
-                <ul>
-                    <?php foreach ($topics as $key => $topic): ?>
-                    <li><a href="#"><?=$topic['name'];?></a> </li>
-                    <?php endforeach; ?>
-                </ul>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
 
 <!--Блок Main end-->
 
