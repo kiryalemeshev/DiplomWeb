@@ -219,3 +219,17 @@ function searchInTitleAndContent($text, $table1, $table2)
     dbCheckError($query);
     return $query -> fetchAll();
 }
+
+
+
+// Выборка записи (опросы) с автором для singletest
+
+function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id)
+{
+    global $pdo;
+    $sql = "Select p.*, u.username from $table1 as p join $table2 as u on p.id_user = u.id where p.id = $id";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query -> fetch();
+}

@@ -1,6 +1,8 @@
 <?php
 include "path.php";
-include "app/controllers/vi.php";
+
+include SITE_ROOT . "/app/database/db.php";
+$post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
 
 ?>
 
@@ -179,81 +181,18 @@ include "app/controllers/vi.php";
     <div class="content-row">
         <!--main content-->
         <div class="main-content col-md-9 col-12">
-            <h2>Мы предлагаем вам пройти небольшой опрос, который поможет нам определить,
-                какие предметы ЕГЭ будут наиболее сдаваемы при поступлении в Вуз.</h2>
+            <h2><?php echo $post['title']; ?></h2>
             <div class="single_post row">
                 <div class="img col-12 ">
-                    <img src="assets/image/image_6.png" alt="img-thumbnail" style="width: 1200px; height: 400px; border-radius: 10px;">
+                    <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>" style="width: 1200px; height: 400px; border-radius: 10px;">
 
                 </div>
                 <div class="info">
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
-                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
+                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/>  <?=$post['username'];?> </p>
+                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> <?=$post['created_date'];?></p>
                 </div>
                 <div class="single_post_text col-12 ">
-
-                    <div class="container">
-                        <h1>Опросник для сдающих ЕГЭ</h1>
-                        <p>Пожалуйста, ответьте на следующие вопросы:</p>
-
-                        <form action="singleTEST.php" method="post">
-
-                            <!-- Вопрос 1 -->
-                            <div class="frame">
-                                <div class="question">
-                                    <p><strong>Вопрос 1.</strong>
-                                        Что является основной целью вашего поступления в университет?</p>
-                                    <ul class="checkboxes">
-                                        <li>
-                                            <label class="checkbox-container">
-                                                <input type="checkbox" name="quest1" value="Получение диплома">
-                                                <span class="checkbox-checkmark"></span>
-                                                Получение диплома
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="checkbox-container">
-                                                <input type="checkbox" name="quest2" value="Приобретение новых знаний и навыков">
-                                                <span class="checkbox-checkmark"></span>
-                                                Приобретение новых знаний и навыков
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="checkbox-container">
-                                                <input type="checkbox" name="quest3" value="Расширение круга общения">
-                                                <span class="checkbox-checkmark"></span>
-                                                Расширение круга общения
-                                            </label>
-                                        </li>
-                                        <li>
-                                            <label class="checkbox-container">
-                                                <input type="checkbox" name="quest4" value="Возможность заниматься наукой и исследованиями">
-                                                <span class="checkbox-checkmark"></span>
-                                                Возможность заниматься наукой и исследованиями
-                                            </label>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-
-                                </div>
-                            </div>
-
-
-
-
-                            <div class="w-100"></div>
-                            <div class="mb-3 col-12 col-md-4">
-                                <button onclick="Message()" type="submit" class="btn btn-danger" name="button-sub">Отправить</button>
-                                <script>
-                                    function Message() { alert("Спасибо за ответ!"); }
-                                </script>
-                        </form>
-                    </div>
-
-
-
+                    <?=$post['content'];?>
                 </div>
 
             </div>
