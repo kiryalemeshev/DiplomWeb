@@ -4,6 +4,82 @@ include 'app/controllers/topics.php';
 $posts = selectAllFromPostsWithUsersOnIndex('posts', 'users');
 $topTopic = selectTopTopicFromPostsOnIndex('posts');
 
+
+// Проверяем авторизацию
+if (!isset($_SESSION['login'])) {
+    // Пользователь не авторизован. Выводим сообщение и ссылку
+    echo '<!DOCTYPE html>';
+    echo '<html lang="en">';
+    echo '<head>';
+    echo '    <meta charset="UTF-8">';
+    echo '    <meta name="viewport" content="width=device-width, initial-scale=1.0">';
+    echo '    <title>Не авторизован</title>';
+    echo '    <style>';
+    echo '        body {';
+    echo '            background-image: url("' . BASE_URL . 'assets/image/bg.jpg");';
+    echo '            background-size: cover;';
+    echo '            background-position: center;';
+    echo '            background-repeat: no-repeat;';
+    echo '            margin: 0;';
+    echo '            height: 100vh;';
+    echo '            display: flex;';
+    echo '            flex-direction: column; /* Вертикальное расположение */';
+    echo '            /* Убираем align-items: center; */';
+    echo '            font-family: sans-serif;';
+    echo '            color: #fff;';
+    echo '            overflow: hidden;';
+    echo '            padding-top: 40px; /* Отступ сверху для заголовка */';
+    echo '        }';
+    echo '        h2 {';
+    echo '            font-size: 3em;';
+    echo '            margin-bottom: 5px; /* Уменьшенный отступ под заголовком */';
+    echo '            color: red;';
+    echo '            font-weight: bold;';
+    echo '            text-align: center;';
+    echo '            margin-top: 0; /* Убирает отступ сверху  */';
+    echo '        }';
+    echo '        p {';
+    echo '            font-size: 1.8em;';
+    echo '            margin-top: 0; /* Убирает отступ сверху */';
+    echo '            line-height: 1.5;';
+    echo '            text-align: center;';
+    echo '            color: #f0f0f0;';
+    echo '        }';
+
+    echo '        a {';
+    echo '            color: #002137;';
+    echo '            text-decoration: none;';
+    echo '            font-weight: bold;';
+    echo '        }';
+    echo '        a:hover {';
+    echo '            text-decoration: underline;';
+    echo '        }';
+    echo '    </style>';
+    echo '</head>';
+    echo '<body>';
+    echo '    <h2>Вы не авторизованы!</h2>';
+    echo '    <p>Пожалуйста, <a href="' . BASE_URL . 'log.php">войдите</a> или <a href="' . BASE_URL . 'reg.php">зарегистрируйтесь</a>.</p>';
+    echo '</body>';
+    echo '</html>';
+
+    exit(); // Важно: завершаем выполнение скрипта, чтобы не показывать остальной контент
+} else {
+    // Пользователь авторизован. Продолжаем показ контента
+    ?>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Главная страница</title>
+    </head>
+    <body>
+
+    </body>
+    </html>
+    <?php
+}
+
 ?>
 
 
@@ -51,15 +127,14 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
             Популярные категории
         </h2>
     </div>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" >
 
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
         <div class="carousel-inner" >
             <div class="carousel-item">
                 <img src="assets/image/open.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="DaysDoor.php">Перейти</a></h5>
-
                 </div>
             </div>
 
@@ -67,40 +142,36 @@ $topTopic = selectTopTopicFromPostsOnIndex('posts');
                 <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
                 <div class="carousel-caption d-none d-md-block">
                     <h5><a href="single.php">Перейти</a></h5>
-
                 </div>
             </div>
 
             <?php foreach ($topTopic as $key => $post) : ?>
             <?php if($key == 0):?>
-                <div class="carousel-item active">
-                    <?php else:?>
-                    <div class="carousel-item">
-                        <?php endif;?>
-                     <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>"  class="d-block w-100"  >
-                     <div class="carousel-caption d-none d-md-block">
-                         <h5><a href="<?=BASE_URL . 'singleTEST.php?post=' . $post['id']; ?>">
-                                 <?=mb_strimwidth($post['title'], 0, 100, '...') ?>
-                             </a></h5>
-                     </div>
+            <div class="carousel-item active">
+                <?php else:?>
+                <div class="carousel-item">
+                    <?php endif;?>
+                    <img src="<?=BASE_URL . 'assets/image/posts/' . $post['img'] ?>" alt="<?=$post['title']?>"  class="d-block w-100"  >
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5><a href="<?=BASE_URL . 'singleTEST.php?post=' . $post['id']; ?>">
+                                <?=mb_strimwidth($post['title'], 0, 100, '...') ?>
+                            </a></h5>
+                    </div>
                 </div>
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </div>
 
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-</div>
-<!--Блок карусели End-->
+    <!--Блок карусели End-->
 
 
 <!--Блок Main-->
