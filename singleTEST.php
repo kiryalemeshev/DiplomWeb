@@ -197,7 +197,6 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
 
             </div>
 
-
         </div>
 
 

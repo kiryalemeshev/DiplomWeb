@@ -83,7 +83,7 @@ include '../../app/controllers/posts.php';
 
 
 
-                <select name="topic" class="form-select mb-4" aria-label="Default select example">
+                <select name="topic"   class="form-select mb-4" aria-label="Default select example">
 
 
                     <?php foreach ($topics as $key => $topic): ?>

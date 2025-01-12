@@ -28,11 +28,11 @@ if (!isset($_SESSION['login'])) {
     echo '            font-family: sans-serif;';
     echo '            color: #fff;';
     echo '            overflow: hidden;';
-    echo '            padding-top: 40px; /* Отступ сверху для заголовка */';
+    echo '            padding-top: 20px; /* Отступ сверху для заголовка */';
     echo '        }';
     echo '        h2 {';
     echo '            font-size: 3em;';
-    echo '            margin-bottom: 5px; /* Уменьшенный отступ под заголовком */';
+    echo '            margin-bottom: 0; /* Уменьшенный отступ под заголовком */';
     echo '            color: red;';
     echo '            font-weight: bold;';
     echo '            text-align: center;';
@@ -54,7 +54,9 @@ if (!isset($_SESSION['login'])) {
     echo '        a:hover {';
     echo '            text-decoration: underline;';
     echo '        }';
+
     echo '    </style>';
+    echo ' <link rel="icon" type="image/png" href="assets/icons/logo_main.png">';
     echo '</head>';
     echo '<body>';
     echo '    <h2>Вы не авторизованы!</h2>';
@@ -72,7 +74,10 @@ if (!isset($_SESSION['login'])) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Главная страница</title>
+        <link rel="icon" type="image/png" href="assets/icons/logo_main.png">';
+
     </head>
+
     <body>
 
     </body>
@@ -268,7 +273,7 @@ if (!isset($_SESSION['login'])) {
                 <h3>Категории</h3>
                 <ul>
                     <?php foreach ($topics as $key => $topic): ?>
-                    <li><a href="#"><?=$topic['name'];?></a> </li>
+                    <li><a href="<?= BASE_URL . 'category.php?id=' . $topic['id'];?>"><?=$topic['name'];?></a> </li>
                     <?php endforeach; ?>
                 </ul>
 
