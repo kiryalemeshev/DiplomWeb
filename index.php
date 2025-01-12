@@ -68,20 +68,7 @@ if (!isset($_SESSION['login'])) {
 } else {
     // Пользователь авторизован. Продолжаем показ контента
     ?>
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Главная страница</title>
-        <link rel="icon" type="image/png" href="assets/icons/logo_main.png">';
 
-    </head>
-
-    <body>
-
-    </body>
-    </html>
     <?php
 }
 
