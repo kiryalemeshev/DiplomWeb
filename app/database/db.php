@@ -183,10 +183,10 @@ function delete($table, $id){
 
 // Выборка записей (опросы) с автором на главную
 
-function selectAllFromPostsWithUsersOnIndex($table1, $table2)
+function selectAllFromPostsWithUsersOnIndex($table1, $table2, $limit, $offset)
 {
     global $pdo;
-    $sql = "Select p.*, u.username from $table1 as p join $table2 as u on p.id_user = u.id where p.status = 1";
+    $sql = "Select p.*, u.username from $table1 as p join $table2 as u on p.id_user = u.id where p.status = 1 LIMIT $limit OFFSET $offset";
     $query = $pdo->prepare($sql);
     $query->execute();
     dbCheckError($query);
@@ -232,4 +232,14 @@ function selectPostFromPostsWithUsersOnSingle($table1, $table2, $id)
     $query->execute();
     dbCheckError($query);
     return $query -> fetch();
+}
+
+function countRow($table)
+{
+    global $pdo;
+    $sql = "Select COUNT(*) from $table where status = 1";
+    $query = $pdo->prepare($sql);
+    $query->execute();
+    dbCheckError($query);
+    return $query -> fetchColumn();
 }
