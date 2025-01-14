@@ -239,7 +239,6 @@ if (!isset($_SESSION['login'])) {
                     <p class="preview-text">
                         Мы предлагаем вам пройти небольшой опрос, который поможет нам определить,
                         какие предметы ЕГЭ будут наиболее сдаваемы при поступлении в Вуз.
-                    </p>
 
                 </div>
 
@@ -248,6 +247,7 @@ if (!isset($_SESSION['login'])) {
             <!--Navigation-->
             <?php include("app/include/pagination.php"); ?>
         </div>
+
 
         <!--sliderbar content-->
         <div class="sidebar col-md-3 col-12">

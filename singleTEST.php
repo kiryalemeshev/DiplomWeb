@@ -194,7 +194,8 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                 <div class="single_post_text col-12 ">
                     <?=$post['content'];?>
                 </div>
-
+                <!-- Инклюдим html block с комментариями-->
+                <p> <?php include("app/include/comments.php"); ?> </p>
             </div>
 
         </div>

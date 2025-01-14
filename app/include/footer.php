@@ -18,9 +18,8 @@
             <div class="col-sm-4">
                 <h3>Полезные ссылки</h3>
                 <ul>
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">О компании</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="index.php">Главная</a></li>
+                    <li><a href="contact_info.php">Контакты</a></li>
                 </ul>
             </div>
             <div class="col-sm-4">
