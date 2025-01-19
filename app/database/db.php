@@ -11,6 +11,13 @@ function tt($value){
     exit();
 }
 
+function tte($value){
+    echo '<pre>';
+    print_r($value);
+    echo '</pre>';
+
+}
+
 //Проверка выполнения запроса к БД
 function dbCheckError($query)
 {

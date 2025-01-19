@@ -297,3 +297,32 @@ form div.err{
 
 }
 
+/*
+Comments
+*/
+
+.all-comments{
+    padding-top: 3rem;
+}
+
+.all-comments h3{
+    margin-bottom: 2rem;
+}
+
+.all-comments .one-comment{
+    padding: 1rem;
+    border: 1px solid #1d1945;
+    border-radius: 4px;
+}
+
+.all-comments .one-comment span{
+    display: inline-flex;
+    margin: 0.5rem 1.5rem 1.5rem 0;
+    font-weight: 500;
+}
+
+.all-comments .one-comment span img{
+    margin-right: 1rem;
+    font-weight: 600;
+
+}

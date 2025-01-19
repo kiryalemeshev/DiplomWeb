@@ -13,6 +13,9 @@
             <li>
                 <a href="../../admin/users/index.php">Пользователи</a>
             </li>
+            <li>
+                <a href="../../admin/comments/index.php">Вопросы</a>
+            </li>
         </ul>
 
     </div>

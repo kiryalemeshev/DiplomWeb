@@ -156,6 +156,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['edit_post'])){
     $topic = '';
 }
 
+
+//Статус опубликовать или снять
 if($_SERVER["REQUEST_METHOD"] === "GET" && isset($_GET['pub_id'])){
     $id = $_GET['pub_id'];
     $publish = $_GET['publish'];
