@@ -54,6 +54,7 @@ if (isset($_GET['id'])) {
             <meta charset="UTF-8">
             <title>Анализ записи</title>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <link rel="icon" type="image/png" href="../../assets/icons/logo_main.png">
         </head>
         <body>
         <canvas id="chart"></canvas>
