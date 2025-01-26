@@ -15,6 +15,54 @@ include '../../app/controllers/posts.php';
             display: inline-block;
             margin: 0; /* Убираем стандартные отступы у параграфов */
         }
+        .poll-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .poll-form h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .poll-form p {
+            color: #555;
+        }
+        .poll-question {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+            margin-bottom: 15px;
+            border: 1px solid #eee;
+        }
+        .poll-question label {
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .poll-question .question-type {
+            max-width: 200px;
+        }
+        .poll-question input[type="text"], .poll-question select {
+            margin-bottom: 10px;
+        }
+        .answer-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .answer-buttons button {
+            font-size: 0.9rem;
+        }
+        .answer-container .form-label {
+            margin-top: 5px;
+            display: block;
+        }
+        .answer-group {
+            margin-bottom: 10px;
+        }
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -93,9 +141,131 @@ include '../../app/controllers/posts.php';
                         </label>
                     </div><br>
 
+
                     <div class="col col-6">
                         <button name="add_post" class="btn btn-primary" type="submit">Добавить запись</button>
                     </div>
+
+                    <!-- Form for poll -->
+                    <div class="poll-form">
+                        <h3>Создание опроса</h3>
+                        <p>Минимум 10 вопросов</p>
+                        <?php for ($i = 1; $i <= 10; $i++): ?>
+                            <div class="mb-3 poll-question" data-question-id="<?=$i?>">
+                                <label for="question<?=$i?>" class="form-label">Вопрос <?=$i?>:</label>
+                                <input type="text" class="form-control question-text" name="question<?=$i?>" id="question<?=$i?>" placeholder="Введите вопрос <?=$i?>" required>
+                                <div class="mb-3 mt-1">
+                                    <label class="form-label">Тип вопроса:</label>
+                                    <select name="question_type_<?=$i?>" class="form-select question-type"  aria-label="Тип вопроса" required>
+                                        <option value="radio">Радиокнопки</option>
+                                        <option value="checkbox">Чекбоксы</option>
+                                        <option value="text">Текстовое поле</option>
+                                    </select>
+                                </div>
+                                <div class="answer-container mt-1" id="answer-container-<?=$i?>">
+                                    <div class="answer-group">
+                                        <label for="answer1" class="form-label mt-1">Ответ 1:</label>
+                                        <input type="text" class="form-control mt-1 answer-input" name="question<?=$i?>_answer1" id="answer1" placeholder="Введите вариант ответа 1">
+
+                                        <label for="answer2" class="form-label mt-1">Ответ 2:</label>
+                                        <input type="text" class="form-control mt-1 answer-input" name="question<?=$i?>_answer2" id="answer2" placeholder="Введите вариант ответа 2">
+                                        <div class="answer-buttons mt-1">
+                                            <button type="button" class="btn btn-outline-secondary add-answer" data-question="<?=$i?>">Добавить вариант ответа</button>
+                                            <button type="button" class="btn btn-outline-danger remove-answer" data-question="<?=$i?>">Удалить последний вариант ответа</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endfor; ?>
+                    </div>
+
+                </form>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const pollForm = document.querySelector('.poll-form');
+                    if (pollForm) {
+                        pollForm.addEventListener('click', function(event) {
+                            if (event.target.classList.contains('add-answer')) {
+                                const questionId = event.target.getAttribute('data-question');
+                                const answerContainer = document.getElementById(`answer-container-${questionId}`);
+                                const answerNumber = answerContainer.querySelectorAll('.answer-group').length + 1;
+                                if(answerNumber <= 5){
+
+                                    const newAnswerGroup = document.createElement('div');
+                                    newAnswerGroup.classList.add('answer-group');
+
+                                    const newAnswerLabel = document.createElement('label');
+                                    newAnswerLabel.classList.add('form-label', 'mt-1');
+                                    newAnswerLabel.innerText = `Ответ ${answerNumber}:`;
+                                    newAnswerGroup.appendChild(newAnswerLabel);
+
+
+                                    const newAnswerInput = document.createElement('input');
+                                    newAnswerInput.type = 'text';
+                                    newAnswerInput.classList.add('form-control', 'mt-1', 'answer-input');
+                                    newAnswerInput.name = `question${questionId}_answer${answerNumber}`;
+                                    newAnswerInput.id = `answer${answerNumber}`;
+                                    newAnswerInput.placeholder = `Введите вариант ответа ${answerNumber}`;
+                                    newAnswerGroup.appendChild(newAnswerInput);
+
+
+                                    answerContainer.appendChild(newAnswerGroup);
+                                }
+                                else{
+                                    alert('максимум 5 вариантов ответа')
+                                }
+
+
+                            } else if (event.target.classList.contains('remove-answer')) {
+                                const questionId = event.target.getAttribute('data-question');
+                                const answerContainer = document.getElementById(`answer-container-${questionId}`);
+                                const answerGroups = answerContainer.querySelectorAll('.answer-group');
+                                if(answerGroups.length > 1){
+                                    answerContainer.removeChild(answerGroups[answerGroups.length - 1]);
+                                }
+                            }
+                        });
+
+
+                        pollForm.addEventListener('change', function(event){
+                            if(event.target.classList.contains('question-type')){
+                                const questionType = event.target.value;
+                                const questionContainer = event.target.closest('.poll-question');
+                                const questionId = questionContainer.getAttribute('data-question-id');
+                                const answerContainer = document.getElementById(`answer-container-${questionId}`);
+                                const answerGroups = answerContainer.querySelectorAll('.answer-group');
+                                if (questionType === 'text') {
+                                    answerGroups.forEach(group => {
+                                        group.querySelectorAll('input[type="text"]').forEach(input => {
+                                            input.style.display = 'none';
+                                            input.removeAttribute('required');
+                                            input.value = '';
+                                        });
+                                        group.querySelectorAll('label').forEach(label => {
+                                            label.style.display = 'none';
+                                        });
+                                    });
+                                }
+                                else {
+                                    answerGroups.forEach(group => {
+                                        group.querySelectorAll('input[type="text"]').forEach(input => {
+                                            input.style.display = 'block';
+                                            input.setAttribute('required', 'required');
+                                        });
+                                        group.querySelectorAll('label').forEach(label => {
+                                            label.style.display = 'block';
+                                        });
+                                    });
+                                }
+                            }
+                        });
+
+                    }
+                });
+            </script>
+
                 </form>
             </div>
 
