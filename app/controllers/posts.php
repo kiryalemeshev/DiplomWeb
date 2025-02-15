@@ -22,13 +22,15 @@ $postsAdm = selectAllFromPostsWithUsers('posts','users');
 //Форма создания опроса
 if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
 
+    $errMsg = []; // Массив для ошибок
 
+    // 1. Обработка изображения (ВАШ КОД ИЗНАЧАЛЬНО)
     if(!empty($_FILES['img']['name'])) {
 
         $imgName = time() . "_" . $_FILES['img']['name'];
         $fileTmpName = $_FILES['img']['tmp_name'];
         $fileType = $_FILES['img']['type'];
-        $destination = ROOT_PATH . "\assets\image\posts\\" . $imgName;
+        $destination = ROOT_PATH . "/assets/image/posts/" . $imgName;  // Исправьте слэши
 
         if (strpos($fileType, 'image') === false) {
             array_push($errMsg,"Подгружаемый файл не является изображением!");
@@ -40,7 +42,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
             } else {
                 array_push($errMsg,"Ошибка загрузки изображения на сервер!");
             }
-    }
+        }
 
 
     }else{
@@ -59,21 +61,59 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
     }elseif (mb_strlen($title, 'UTF-8') < 7){
         array_push($errMsg,"Название опроса должно быть более 7-и символов!!!");
     }else{
+
+        // 2. Получение данных из формы
+        $quest1_label = trim($_POST['quest1_label']);
+        $quest1_answer = trim($_POST['quest1_answer']);
+        $quest2 = isset($_POST['quest2']) ? trim($_POST['quest2']) : ''; // Проверяем, установлен ли radio button
+        $quest2_label = trim($_POST['quest2_label']); // Получаем quest2_label
+        $quest3_label = trim($_POST['quest3_label']); // Получаем quest3_label
+        $quest3_1 = isset($_POST['quest3_1']) ? 1 : 0; // Преобразуем checkbox в 1/0
+        $quest3_2 = isset($_POST['quest3_2']) ? 1 : 0;
+        $quest3_3 = isset($_POST['quest3_3']) ? 1 : 0;
+        $quest3_4 = isset($_POST['quest3_4']) ? 1 : 0;
+        $quest3_5 = isset($_POST['quest3_5']) ? 1 : 0;
+
+        // 3. Валидация данных (минимум)
+        if ($quest1_label === '' || $quest1_answer === '') {
+            array_push($errMsg, "Вопрос и ответ 1 должны быть заполнены!");
+        }
+
+        // 4. Подготовка данных для вставки/обновления (зависит от вашей логики)
+        if(empty($errMsg)) {
+
             $post =  [
                 'id_user' => $_SESSION['id'],
                 'title' => $title,
                 'content' => $content,
                 'img' => $_POST['img'],
                 'status' => $publish,
-                'id_topic' => $topic
-
+                'id_topic' => $topic,
+                'quest1_label' => $quest1_label,
+                'quest1_answer' => $quest1_answer,
+                'quest2' => $quest2,
+                'quest2_label' => $quest2_label,
+                'quest3_label' => $quest3_label,
+                'quest3_1' => $quest3_1,
+                'quest3_2' => $quest3_2,
+                'quest3_3' => $quest3_3,
+                'quest3_4' => $quest3_4,
+                'quest3_5' => $quest3_5
             ];
 
             $post = insert('posts',$post);
             $post = selectOne('posts', ['id' => $id]);
             header('Location: ' . BASE_URL . 'admin/posts/index.php');
 
+        } else {
+            // Если есть ошибки, выводим их или обрабатываем другим способом
+            echo "<div class='error'>";
+            foreach ($errMsg as $error) {
+                echo $error . "<br>";
+            }
+            echo "</div>";
         }
+    }
 
 } else {
 

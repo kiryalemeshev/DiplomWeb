@@ -96,32 +96,62 @@ function  selectOne($table,$params=[])
 
 
 //Запись в таблицу БД
-function insert($table,$params){
+function insert($table, $params) {
     global $pdo;
+
+    // Создаем плейсхолдеры для подготовленного запроса
+    $keys = array_keys($params);
+    $placeholders = str_repeat("?, ", count($keys) - 1) . "?"; // "?, ?, ?"
+
+    // Формируем SQL-запрос с плейсхолдерами
+    $sql = "INSERT INTO $table (" . implode(", ", $keys) . ") VALUES (" . $placeholders . ")";
+
+    try {
+        // Подготавливаем SQL-запрос
+        $query = $pdo->prepare($sql);
+
+        // Выполняем запрос, передавая значения в виде массива
+        $query->execute(array_values($params));
+
+        // Проверяем наличие ошибок
+        dbCheckError($query);
+
+        // Возвращаем ID последней вставленной записи
+        return $pdo->lastInsertId();
+
+    } catch (PDOException $e) {
+        // Обрабатываем ошибки PDO (например, ошибки синтаксиса SQL)
+        echo "Ошибка SQL: " . $e->getMessage() . "<br>";
+        return false; // Или другое значение, указывающее на ошибку
+    }
+}
+
+//function insert($table,$params){
+    //global $pdo;
     //INSERT INTO `users` (admin, username, email, password) VALUES ( '1', 'Ivan', 'ivan4@yandex.ru', 'ivan4');
 
-    $i = 0;
-    $coll = '';
-    $mask = '';
-    foreach ($params as $key=>$value){
-        if ($i===0){
-            $coll = $coll . "$key";
-            $mask = $mask . "'" ."$value" ."'";
-        }else{
-            $coll = $coll . ", $key";
-            $mask = $mask . ", '" . "$value" . "'";
-        }
-        $i++;
-    }
+// $i = 0;
+//$coll = '';
+//$mask = '';
+    // foreach ($params as $key=>$value){
+        //if ($i===0){
+            //   $coll = $coll . "$key";
+            //    $mask = $mask . "'" ."$value" ."'";
+            // }else{
+            //    $coll = $coll . ", $key";
+            //     $mask = $mask . ", '" . "$value" . "'";
+            //  }
+        //   $i++;
+        // }
 
-    $sql = "INSERT INTO $table ($coll) VALUES ($mask)";
+    //$sql = "INSERT INTO $table ($coll) VALUES ($mask)";
 
-    $query = $pdo->prepare($sql);
-    $query->execute();
-    dbCheckError($query);
-    return $pdo->lastInsertId();
+    // $query = $pdo->prepare($sql);
+    //$query->execute();
+    // dbCheckError($query);
+    //return $pdo->lastInsertId();
 
-}
+//}
 
 //Обновление строки в БД
 function update($table, $id, $params){
