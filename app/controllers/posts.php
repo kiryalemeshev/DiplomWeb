@@ -24,7 +24,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
 
     $errMsg = []; // Массив для ошибок
 
-    // 1. Обработка изображения (ВАШ КОД ИЗНАЧАЛЬНО)
+    // 1. Обработка изображения
     if(!empty($_FILES['img']['name'])) {
 
         $imgName = time() . "_" . $_FILES['img']['name'];
@@ -80,6 +80,8 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
         $check3_4 = trim($_POST['check3_4']);
         $check3_5 = trim($_POST['check3_5']);
 
+        $quest4_label = trim($_POST['quest4_label']);
+
         // 3. Валидация данных (минимум)
         if ($quest1_label === '' || $quest1_answer === '') {
             array_push($errMsg, "Вопрос и ответ 1 должны быть заполнены!");
@@ -111,7 +113,9 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
                 'check3_2' => $check3_2,
                 'check3_3' => $check3_3,
                 'check3_4' => $check3_4,
-                'check3_5' => $check3_5
+                'check3_5' => $check3_5,
+
+                'quest4_label' => $quest4_label
             ];
 
             $post = insert('posts',$post);
