@@ -139,57 +139,47 @@ include '../../app/controllers/posts.php';
 
             <div class="form-group">
                 <label for="quest1_label_input">Вопрос 1:</label>
-                <input type="text" id="quest1_label_input" name="quest1_label" placeholder="Введите ваш вопрос здесь">
+                <input type="text" id="quest1_label_input" name="quest1_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
                 <input type="text" id="answer1" name="quest1_answer" placeholder="Ваш ответ">
             </div>
 
             <div class="form-group radio-group">
                 <label for="quest2_label_input">Вопрос 2:</label>
-                <input type="text" id="quest2_label_input" name="quest2_label" placeholder="Введите ваш вопрос здесь">
+                <input type="text" id="quest2_label_input" name="quest2_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
                 <div>
-                    <input type="radio" id="radio1" name="quest2" value="option1">
-                    <label for="radio1">Вариант 1</label>
+                    <input type="text" id="quest2_label_input" name="radio2_1" placeholder="Вариант ответа 1...">
                 </div>
                 <div>
-                    <input type="radio" id="radio2" name="quest2" value="option2">
-                    <label for="radio2">Вариант 2</label>
+                    <input type="text" id="quest2_label_input" name="radio2_2" placeholder="Вариант ответа 2...">
                 </div>
                 <div>
-                    <input type="radio" id="radio3" name="quest2" value="option3">
-                    <label for="radio3">Вариант 3</label>
+                    <input type="text" id="quest2_label_input" name="radio2_3" placeholder="Вариант ответа 3...">
                 </div>
                 <div>
-                    <input type="radio" id="radio4" name="quest2" value="option4">
-                    <label for="radio4">Вариант 4</label>
+                    <input type="text" id="quest2_label_input" name="radio2_4" placeholder="Вариант ответа 4...">
                 </div>
                 <div>
-                    <input type="radio" id="radio5" name="quest2" value="option5">
-                    <label for="radio5">Вариант 5</label>
+                    <input type="text" id="quest2_label_input" name="radio2_5" placeholder="Вариант ответа 5...">
                 </div>
             </div>
 
             <div class="form-group checkbox-group">
                 <label for="quest3_label_input">Вопрос 3:</label>
-                <input type="text" id="quest3_label_input" name="quest3_label" placeholder="Введите ваш вопрос здесь">
+                <input type="text" id="quest3_label_input" name="quest3_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;" >
                 <div>
-                    <input type="checkbox" id="checkbox1" name="quest3_1" value="1">
-                    <label for="checkbox1">Вариант 1</label>
+                    <input type="text" id="quest3_label_input" name="check3_1" placeholder="Вариант ответа 1..." >
                 </div>
                 <div>
-                    <input type="checkbox" id="checkbox2" name="quest3_2" value="1">
-                    <label for="checkbox2">Вариант 2</label>
+                    <input type="text" id="quest3_label_input" name="check3_2" placeholder="Вариант ответа 2..." >
                 </div>
                 <div>
-                    <input type="checkbox" id="checkbox3" name="quest3_3" value="1">
-                    <label for="checkbox3">Вариант 3</label>
+                    <input type="text" id="quest3_label_input" name="check3_3" placeholder="Вариант ответа 3..." >
                 </div>
                 <div>
-                    <input type="checkbox" id="checkbox4" name="quest3_4" value="1">
-                    <label for="checkbox4">Вариант 4</label>
+                    <input type="text" id="quest3_label_input" name="check3_4" placeholder="Вариант ответа 4..." >
                 </div>
                 <div>
-                    <input type="checkbox" id="checkbox5" name="quest3_5" value="1">
-                    <label for="checkbox5">Вариант 5</label>
+                    <input type="text" id="quest3_label_input" name="check3_5" placeholder="Вариант ответа 5..." >
                 </div>
             </div>
 

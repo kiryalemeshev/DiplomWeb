@@ -65,14 +65,20 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
         // 2. Получение данных из формы
         $quest1_label = trim($_POST['quest1_label']);
         $quest1_answer = trim($_POST['quest1_answer']);
-        $quest2 = isset($_POST['quest2']) ? trim($_POST['quest2']) : ''; // Проверяем, установлен ли radio button
+
         $quest2_label = trim($_POST['quest2_label']); // Получаем quest2_label
+        $radio2_1 = trim($_POST['radio2_1']);
+        $radio2_2 = trim($_POST['radio2_2']);
+        $radio2_3 = trim($_POST['radio2_3']);
+        $radio2_4 = trim($_POST['radio2_4']);
+        $radio2_5 = trim($_POST['radio2_5']);
+
         $quest3_label = trim($_POST['quest3_label']); // Получаем quest3_label
-        $quest3_1 = isset($_POST['quest3_1']) ? 1 : 0; // Преобразуем checkbox в 1/0
-        $quest3_2 = isset($_POST['quest3_2']) ? 1 : 0;
-        $quest3_3 = isset($_POST['quest3_3']) ? 1 : 0;
-        $quest3_4 = isset($_POST['quest3_4']) ? 1 : 0;
-        $quest3_5 = isset($_POST['quest3_5']) ? 1 : 0;
+        $check3_1 = trim($_POST['check3_1']);
+        $check3_2 = trim($_POST['check3_2']);
+        $check3_3 = trim($_POST['check3_3']);
+        $check3_4 = trim($_POST['check3_4']);
+        $check3_5 = trim($_POST['check3_5']);
 
         // 3. Валидация данных (минимум)
         if ($quest1_label === '' || $quest1_answer === '') {
@@ -89,16 +95,23 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
                 'img' => $_POST['img'],
                 'status' => $publish,
                 'id_topic' => $topic,
+
                 'quest1_label' => $quest1_label,
                 'quest1_answer' => $quest1_answer,
-                'quest2' => $quest2,
+
                 'quest2_label' => $quest2_label,
+                'radio2_1' => $radio2_1,
+                'radio2_2' => $radio2_2,
+                'radio2_3' => $radio2_3,
+                'radio2_4' => $radio2_4,
+                'radio2_5' => $radio2_5,
+
                 'quest3_label' => $quest3_label,
-                'quest3_1' => $quest3_1,
-                'quest3_2' => $quest3_2,
-                'quest3_3' => $quest3_3,
-                'quest3_4' => $quest3_4,
-                'quest3_5' => $quest3_5
+                'check3_1' => $check3_1,
+                'check3_2' => $check3_2,
+                'check3_3' => $check3_3,
+                'check3_4' => $check3_4,
+                'check3_5' => $check3_5
             ];
 
             $post = insert('posts',$post);
