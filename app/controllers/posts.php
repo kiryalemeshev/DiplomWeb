@@ -82,10 +82,16 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
 
         $quest4_label = trim($_POST['quest4_label']);
 
-        // 3. Валидация данных (минимум)
-        if ($quest1_label === '' || $quest1_answer === '') {
-            array_push($errMsg, "Вопрос и ответ 1 должны быть заполнены!");
-        }
+        $quest5_label = trim($_POST['quest5_label']);
+        $radio5_1 = trim($_POST['radio5_1']);
+        $radio5_2 = trim($_POST['radio5_2']);
+
+        $quest6_label = trim($_POST['quest6_label']);
+        $check6_1 = trim($_POST['check6_1']);
+        $check6_2 = trim($_POST['check6_2']);
+        $check6_3 = trim($_POST['check6_3']);
+
+
 
         // 4. Подготовка данных для вставки/обновления (зависит от вашей логики)
         if(empty($errMsg)) {
@@ -115,7 +121,18 @@ if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['add_post'])){
                 'check3_4' => $check3_4,
                 'check3_5' => $check3_5,
 
-                'quest4_label' => $quest4_label
+                'quest4_label' => $quest4_label,
+
+                'quest5_label' => $quest5_label,
+                'radio5_1' => $radio5_1,
+                'radio5_2' => $radio5_2,
+
+                'quest6_label' => $quest6_label,
+                'check6_1' => $check6_1,
+                'check6_2' => $check6_2,
+                'check6_3' => $check6_3
+
+
             ];
 
             $post = insert('posts',$post);

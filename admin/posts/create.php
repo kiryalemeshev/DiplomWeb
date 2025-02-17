@@ -121,8 +121,6 @@ include '../../app/controllers/posts.php';
             </div>
 
 
-
-
                     <select name="topic" class="form-select mb-4" aria-label="Default select example">
                         <option selected>Выбрать категорию:</option>
                         <?php foreach ($topics as $key => $topic): ?>
@@ -130,22 +128,16 @@ include '../../app/controllers/posts.php';
                         <?php endforeach; ?>
                     </select>
 
-                    <div class="form-check">
-                        <input name="publish" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" checked>
-                        <label class="form-check-label" for="flexCheckChecked">
-                            Publish
-                        </label>
-                    </div><br>
 
             <div class="form-group">
                 <label for="quest1_label_input">Вопрос 1:</label>
                 <input type="text" id="quest1_label_input" name="quest1_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
-                <input type="text" id="answer1" name="quest1_answer" placeholder="Ответ" >
+                <input type="text" id="answer1" name="quest1_answer" placeholder="Ответ" disabled >
             </div>
 
             <div class="form-group radio-group">
                 <label for="quest2_label_input">Вопрос 2:</label>
-                <input type="text" id="quest2_label_input" name="quest2_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
+                <input type="text" id="quest2_label_input" name="quest2_label" placeholder="Введите ваш вопрос здесь(выбор одного)" style="border: 2px solid black;">
                 <div>
                     <input type="text" id="quest2_label_input" name="radio2_1" placeholder="Вариант ответа 1...">
                 </div>
@@ -165,7 +157,7 @@ include '../../app/controllers/posts.php';
 
             <div class="form-group checkbox-group">
                 <label for="quest3_label_input">Вопрос 3:</label>
-                <input type="text" id="quest3_label_input" name="quest3_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;" >
+                <input type="text" id="quest3_label_input" name="quest3_label" placeholder="Введите ваш вопрос здесь(выбор нескольких)" style="border: 2px solid black;" >
                 <div>
                     <input type="text" id="quest3_label_input" name="check3_1" placeholder="Вариант ответа 1..." >
                 </div>
@@ -184,13 +176,50 @@ include '../../app/controllers/posts.php';
             </div>
 
 
-
-
             <div class="form-group">
                 <label for="quest6_label_input">Вопрос 4:</label>
                 <input type="text" id="quest4_label_input" name="quest4_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
                 <input type="text" id="answer1" name="quest6_answer" placeholder="Ответ" disabled>
             </div>
+
+
+            <div class="form-group radio-group">
+                <label for="quest5_label_input">Вопрос 5:</label>
+                <input type="text" id="quest5_label_input" name="quest5_label" placeholder="Введите ваш вопрос здесь(выбор одного)" style="border: 2px solid black;" >
+                <div>
+                    <input type="text" id="quest5_label_input" name="radio5_1" placeholder="Вариант ответа 1...">
+                </div>
+                <div>
+                    <input type="text" id="quest5_label_input" name="radio5_2" placeholder="Вариант ответа 2...">
+                </div>
+
+
+            </div>
+
+
+            <div class="form-group checkbox-group">
+                <label for="quest6_label_input">Вопрос 6:</label>
+                <input type="text" id="quest6_label_input" name="quest6_label" placeholder="Введите ваш вопрос здесь(выбор нескольких)" style="border: 2px solid black;" >
+                <div>
+                    <input type="text" id="quest6_label_input" name="check6_1" placeholder="Вариант ответа 1..." >
+                </div>
+                <div>
+                    <input type="text" id="quest6_label_input" name="check6_2" placeholder="Вариант ответа 2..." >
+                </div>
+                <div>
+                    <input type="text" id="quest6_label_input" name="check6_3" placeholder="Вариант ответа 3..." >
+                </div>
+            </div>
+
+
+                    <div class="form-check">
+                        <input name="publish" class="form-check-input" type="checkbox" value="1" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Publish
+                        </label>
+                    </div><br>
+
+
 
             <button type="submit" name="add_post" class="btn btn-primary">Сохранить</button>
 
