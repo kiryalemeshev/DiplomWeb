@@ -152,6 +152,13 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
             padding: 10px;
             margin-bottom: 20px;
         }
+        .question-group {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Optional: Add a light background */
+            font-size: 20px; /* Increased font size */
 
     </style>
 
@@ -194,11 +201,69 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                 <div class="single_post_text col-12 ">
                     <?=$post['content'];?>
                 </div>
+
+                <!-- Вопросы и ответы -->
+                <div class="col-12">
+                    <br><h3>Нужно ответить на ряд вопросов:</h3><br>
+
+                    <!-- Quest1 -->
+                    <div class="question-group">
+                        <b>Вопрос 1:</b> <?=$post['quest1_label']?><br>
+                        <input type="text" placeholder="Введите ответ...">
+                    </div>
+
+                    <!-- Quest2 -->
+                    <div class="question-group">
+                        <b>Вопрос 2:</b> <?=$post['quest2_label']?><br>
+                        Radio 2.1: <?=$post['radio2_1']?><br>
+                        Radio 2.2: <?=$post['radio2_2']?><br>
+                        Radio 2.3: <?=$post['radio2_3']?><br>
+                        Radio 2.4: <?=$post['radio2_4']?><br>
+                        Radio 2.5: <?=$post['radio2_5']?>
+                    </div>
+
+                    <!-- Quest3 -->
+                    <div class="question-group">
+                        <b>Вопрос 3:</b> <?=$post['quest3_label']?><br>
+                        Check 3.1: <?=$post['check3_1']?><br>
+                        Check 3.2: <?=$post['check3_2']?><br>
+                        Check 3.3: <?=$post['check3_3']?><br>
+                        Check 3.4: <?=$post['check3_4']?><br>
+                        Check 3.5: <?=$post['check3_5']?>
+                    </div>
+
+                    <!-- Quest4 -->
+                    <div class="question-group">
+                        <b>Вопрос 4:</b> <?=$post['quest4_label']?>
+                        <input type="text" placeholder="Введите ответ...">
+                    </div>
+
+                    <!-- Quest5 -->
+                    <div class="question-group">
+                        <b>Вопрос 5:</b> <?=$post['quest5_label']?><br>
+                        Radio 5.1: <?=$post['radio5_1']?><br>
+                        Radio 5.2: <?=$post['radio5_2']?>
+                    </div>
+
+                    <!-- Quest6 -->
+                    <div class="question-group">
+                        <b>Вопрос 6:</b> <?=$post['quest6_label']?><br>
+                        Check 6.1: <?=$post['check6_1']?><br>
+                        Check 6.2: <?=$post['check6_2']?><br>
+                        Check 6.3: <?=$post['check6_3']?>
+                    </div>
+                    <button type="submit" name="add_opros" class="btn btn-primary">Отправить ответ</button>
+
+                </div><br>
+
+
+
+
+            </div>
                 <!-- Инклюдим html block с комментариями-->
                 <p> <?php include("app/include/comments.php"); ?> </p>
             </div>
 
-        </div>
 
 
 
