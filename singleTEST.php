@@ -159,6 +159,127 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
             border-radius: 5px;
             background-color: #f9f9f9; /* Optional: Add a light background */
             font-size: 20px; /* Increased font size */
+        }
+
+        /* RadioBtn */
+
+        .radiobuttons {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .radiobuttons li {
+            margin-bottom: 10px;
+        }
+
+        .radiobutton-container {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .radiobutton-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .radiobutton-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border: 2px solid #555;
+            border-radius: 50%;
+        }
+
+        .radiobutton-container input:checked ~ .radiobutton-checkmark {
+            background-color: #004080;
+            border-color: #004080;
+        }
+
+        .radiobutton-checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .radiobutton-container input:checked ~ .radiobutton-checkmark::after {
+            display: block;
+        }
+
+        .radiobutton-container .radiobutton-checkmark::after {
+            top: 4px;
+            left: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: white;
+        }
+        /* Checkbox Styles */
+        .checkboxes {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .checkboxes li {
+            margin-bottom: 10px;
+        }
+
+        .checkbox-container {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checkbox-container input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .checkbox-checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 18px;
+            width: 18px;
+            background-color: #fff;
+            border: 2px solid #555;
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark {
+            background-color: #004080;
+            border-color: #004080;
+        }
+
+        .checkbox-checkmark::after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkbox-checkmark::after {
+            display: block;
+        }
+
+        .checkbox-container .checkbox-checkmark::after {
+            left: 6px;
+            top: 2px;
+            width: 4px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            transform: rotate(45deg);
+        }
 
     </style>
 
@@ -212,24 +333,89 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                         <input type="text" placeholder="Введите ответ...">
                     </div>
 
-                    <!-- Quest2 -->
                     <div class="question-group">
                         <b>Вопрос 2:</b> <?=$post['quest2_label']?><br>
-                        Radio 2.1: <?=$post['radio2_1']?><br>
-                        Radio 2.2: <?=$post['radio2_2']?><br>
-                        Radio 2.3: <?=$post['radio2_3']?><br>
-                        Radio 2.4: <?=$post['radio2_4']?><br>
-                        Radio 2.5: <?=$post['radio2_5']?>
+
+                        <ul class="radiobuttons">
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio2_1']?>
+                                    <input type="radio" name="radio2" value="radio2_1" <?php if ($post['radio2_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio2_2']?>
+                                    <input type="radio" name="radio2" value="radio2_2" <?php if ($post['radio2_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio2_3']?>
+                                    <input type="radio" name="radio2" value="radio2_3" <?php if ($post['radio2_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio2_4']?>
+                                    <input type="radio" name="radio2" value="radio2_4" <?php if ($post['radio2_4'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio2_5']?>
+                                    <input type="radio" name="radio2" value="radio2_5" <?php if ($post['radio2_5'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Quest3 -->
                     <div class="question-group">
                         <b>Вопрос 3:</b> <?=$post['quest3_label']?><br>
-                        Check 3.1: <?=$post['check3_1']?><br>
-                        Check 3.2: <?=$post['check3_2']?><br>
-                        Check 3.3: <?=$post['check3_3']?><br>
-                        Check 3.4: <?=$post['check3_4']?><br>
-                        Check 3.5: <?=$post['check3_5']?>
+
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check3_1']?>
+                                    <input type="checkbox" name="check3[]" value="check3_1" <?php if ($post['check3_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check3_2']?>
+                                    <input type="checkbox" name="check3[]" value="check3_2" <?php if ($post['check3_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check3_3']?>
+                                    <input type="checkbox" name="check3[]" value="check3_3" <?php if ($post['check3_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check3_4']?>
+                                    <input type="checkbox" name="check3[]" value="check3_4" <?php if ($post['check3_4'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check3_5']?>
+                                    <input type="checkbox" name="check3[]" value="check3_5" <?php if ($post['check3_5'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Quest4 -->
@@ -241,17 +427,54 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                     <!-- Quest5 -->
                     <div class="question-group">
                         <b>Вопрос 5:</b> <?=$post['quest5_label']?><br>
-                        Radio 5.1: <?=$post['radio5_1']?><br>
-                        Radio 5.2: <?=$post['radio5_2']?>
+
+                        <ul class="radiobuttons">
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio5_1']?>
+                                    <input type="radio" name="radio5" value="radio5_1" <?php if ($post['radio5_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="radiobutton-container">
+                                    <?=$post['radio5_2']?>
+                                    <input type="radio" name="radio5" value="radio5_2" <?php if ($post['radio5_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="radiobutton-checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
 
                     <!-- Quest6 -->
                     <div class="question-group">
                         <b>Вопрос 6:</b> <?=$post['quest6_label']?><br>
-                        Check 6.1: <?=$post['check6_1']?><br>
-                        Check 6.2: <?=$post['check6_2']?><br>
-                        Check 6.3: <?=$post['check6_3']?>
+
+                        <ul class="checkboxes">
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check6_1']?>
+                                    <input type="checkbox" name="check6[]" value="check6_1" <?php if ($post['check6_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check6_2']?>
+                                    <input type="checkbox" name="check6[]" value="check6_2" <?php if ($post['check6_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-container">
+                                    <?=$post['check6_3']?>
+                                    <input type="checkbox" name="check6[]" value="check6_3" <?php if ($post['check6_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <span class="checkbox-checkmark"></span>
+                                </label>
+                            </li>
+                        </ul>
                     </div>
+
                     <button type="submit" name="add_opros" class="btn btn-primary">Отправить ответ</button>
 
                 </div><br>
