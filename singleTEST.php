@@ -327,7 +327,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                 <div class="col-12">
                     <br><h3>Нужно ответить на ряд вопросов:</h3><br>
 
-                    <form action="#" method="post">
+                    <form action=""<?=BASE_URL . "singleTEST.php"?>" method="post">
                     <!-- Quest1 -->
                     <div class="question-group">
                         <b>Вопрос 1:</b> <?=$post['quest1_label']?><br>
