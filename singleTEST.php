@@ -1,7 +1,7 @@
 <?php
 include "path.php";
+include "app/controllers/opros.php";
 
-include SITE_ROOT . "/app/database/db.php";
 $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
 
 ?>
@@ -327,11 +327,11 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                 <div class="col-12">
                     <br><h3>Нужно ответить на ряд вопросов:</h3><br>
 
-                    <form action=""<?=BASE_URL . "singleTEST.php"?>" method="post">
+                    <form action="#" method="post">
                     <!-- Quest1 -->
                     <div class="question-group">
                         <b>Вопрос 1:</b> <?=$post['quest1_label']?><br>
-                        <input type="text" name="Question1" placeholder="Введите ответ...">
+                        <input type="text" name="Quest1" placeholder="Введите ответ...">
                     </div>
 
                     <div class="question-group">
@@ -341,35 +341,35 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio2_1']?>
-                                    <input type="radio" name="Question2" value="radio2_1" <?php if ($post['radio2_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest2" value="<?=$post['radio2_1']?>" <?php if ($post['radio2_1'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio2_2']?>
-                                    <input type="radio" name="Question2" value="radio2_2" <?php if ($post['radio2_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest2" value="<?=$post['radio2_2']?>" <?php if ($post['radio2_2'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio2_3']?>
-                                    <input type="radio" name="Question2" value="radio2_3" <?php if ($post['radio2_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest2" value="<?=$post['radio2_3']?>" <?php if ($post['radio2_3'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio2_4']?>
-                                    <input type="radio" name="Question2" value="radio2_4" <?php if ($post['radio2_4'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest2" value="<?=$post['radio2_4']?>" <?php if ($post['radio2_4'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio2_5']?>
-                                    <input type="radio" name="Question2" value="radio2_5" <?php if ($post['radio2_5'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest2" value="<?=$post['radio2_5']?>" <?php if ($post['radio2_5'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
@@ -384,35 +384,35 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check3_1']?>
-                                    <input type="checkbox" name="Question3" value="check3_1" <?php if ($post['check3_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest3" value="<?=$post['check3_1']?>" <?php if ($post['check3_1'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check3_2']?>
-                                    <input type="checkbox" name="Question4" value="check3_2" <?php if ($post['check3_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest4" value="<?=$post['check3_2']?>" <?php if ($post['check3_2'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check3_3']?>
-                                    <input type="checkbox" name="Question5" value="check3_3" <?php if ($post['check3_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest5" value="<?=$post['check3_3']?>" <?php if ($post['check3_3'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check3_4']?>
-                                    <input type="checkbox" name="Question6" value="check3_4" <?php if ($post['check3_4'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest6" value="<?=$post['check3_4']?>" <?php if ($post['check3_4'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check3_5']?>
-                                    <input type="checkbox" name="Question7" value="check3_5" <?php if ($post['check3_5'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest7" value="<?=$post['check3_5']?>" <?php if ($post['check3_5'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
@@ -422,7 +422,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                     <!-- Quest4 -->
                     <div class="question-group">
                         <b>Вопрос 4:</b> <?=$post['quest4_label']?>
-                        <input type="text" name="Question8" placeholder="Введите ответ...">
+                        <input type="text" name="Quest8" placeholder="Введите ответ...">
                     </div>
 
                     <!-- Quest5 -->
@@ -433,14 +433,14 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio5_1']?>
-                                    <input type="radio" name="Question9" value="radio5_1" <?php if ($post['radio5_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest9" value="<?=$post['radio5_1']?>" <?php if ($post['radio5_1'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="radiobutton-container">
                                     <?=$post['radio5_2']?>
-                                    <input type="radio" name="Question9" value="radio5_2" <?php if ($post['radio5_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="radio" name="Quest9" value="<?=$post['radio5_2']?>" <?php if ($post['radio5_2'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="radiobutton-checkmark"></span>
                                 </label>
                             </li>
@@ -455,28 +455,28 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check6_1']?>
-                                    <input type="checkbox" name="Question10" value="check6_1" <?php if ($post['check6_1'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest10" value=" <?=$post['check6_1']?>" <?php if ($post['check6_1'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check6_2']?>
-                                    <input type="checkbox" name="Question11" value="check6_2" <?php if ($post['check6_2'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest11" value=" <?=$post['check6_2']?>" <?php if ($post['check6_2'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                             <li>
                                 <label class="checkbox-container">
                                     <?=$post['check6_3']?>
-                                    <input type="checkbox" name="Question12" value="check6_3" <?php if ($post['check6_3'] == '1') echo 'checked="checked"'; ?>>
+                                    <input type="checkbox" name="Quest12" value=" <?=$post['check6_3']?>" <?php if ($post['check6_3'] == '1') echo 'checked="checked"'; ?>>
                                     <span class="checkbox-checkmark"></span>
                                 </label>
                             </li>
                         </ul>
                     </div>
 
-                    <button type="submit" name="add_opros" class="btn btn-primary">Отправить ответ</button>
+                    <button type="submit" name="add_oprosnik" class="btn btn-primary">Отправить ответ</button>
 
                 </div><br>
 
