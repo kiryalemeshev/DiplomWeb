@@ -55,7 +55,7 @@ if (is_writable($counterFile)) {
 }
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-$limit = 2;
+$limit = 4;
 $offset = $limit * ($page - 1);
 $total_pages = round(countRow('posts') / $limit, 0);
 
@@ -252,7 +252,7 @@ if (!isset($_SESSION['login'])) {
                     </div>
                 </div>
             <?php endforeach; ?>
-            <div class="post row">
+           <!-- <div class="post row">
                 <div class="img col-12 col-md-4">
                     <a href="DaysDoor.php">
                         <img src="assets/image/openDoor.jpg" alt="img-thumbnail" style="width: 300px; height: 170px;" >
@@ -272,9 +272,9 @@ if (!isset($_SESSION['login'])) {
                     </p>
 
                 </div>
-            </div>
+            </div> -->
 
-            <div class="post row">
+           <!-- <div class="post row">
                 <div class="img col-12 col-md-4">
                     <a href="single.php">
                         <img src="assets/image/image_4.png" alt="img-thumbnail">
@@ -294,7 +294,7 @@ if (!isset($_SESSION['login'])) {
 
                 </div>
 
-            </div>
+            </div> -->
 
             <!--Navigation-->
             <?php include("app/include/pagination.php"); ?>
