@@ -55,7 +55,7 @@ if (is_writable($counterFile)) {
 }
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
-$limit = 4;
+$limit = 3;
 $offset = $limit * ($page - 1);
 $total_pages = round(countRow('posts') / $limit, 0);
 

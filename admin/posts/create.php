@@ -132,7 +132,7 @@ include '../../app/controllers/posts.php';
             <div class="form-group">
                 <label for="quest1_label_input">Вопрос 1:</label>
                 <input type="text" id="quest1_label_input" name="quest1_label" placeholder="Введите ваш вопрос здесь" style="border: 2px solid black;">
-                <input type="text" id="answer1" name="quest1_answer" placeholder="Ответ" >
+                <input type="text" id="answer1" name="quest1_answer" placeholder="Ответ" disabled>
             </div>
 
             <div class="form-group radio-group">
