@@ -158,7 +158,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
             margin-bottom: 10px;
             border-radius: 5px;
             background-color: #f9f9f9; /* Optional: Add a light background */
-            font-size: 20px; /* Increased font size */
+            font-size: 17px; /* Increased font size */
         }
 
         /* RadioBtn */
@@ -331,11 +331,13 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                     <!-- Quest1 -->
                     <div class="question-group">
                         <b>Вопрос 1:</b> <?=$post['quest1_label']?><br>
+                        <p><!-- Отступ --></p>
                         <input type="text" name="Quest1" placeholder="Введите ответ...">
                     </div>
 
                     <div class="question-group">
                         <b>Вопрос 2:</b> <?=$post['quest2_label']?><br>
+                        <p><!-- Отступ --></p>
 
                         <ul class="radiobuttons">
                             <li>
@@ -379,6 +381,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                     <!-- Quest3 -->
                     <div class="question-group">
                         <b>Вопрос 3:</b> <?=$post['quest3_label']?><br>
+                        <p><!-- Отступ --></p>
 
                         <ul class="checkboxes">
                             <li>
@@ -421,13 +424,15 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
 
                     <!-- Quest4 -->
                     <div class="question-group">
-                        <b>Вопрос 4:</b> <?=$post['quest4_label']?>
+                        <b>Вопрос 4:</b> <?=$post['quest4_label']?><br>
+                        <p><!-- Отступ --></p>
                         <input type="text" name="Quest8" placeholder="Введите ответ...">
                     </div>
 
                     <!-- Quest5 -->
                     <div class="question-group">
                         <b>Вопрос 5:</b> <?=$post['quest5_label']?><br>
+                        <p><!-- Отступ --></p>
 
                         <ul class="radiobuttons">
                             <li>
@@ -450,6 +455,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                     <!-- Quest6 -->
                     <div class="question-group">
                         <b>Вопрос 6:</b> <?=$post['quest6_label']?><br>
+                        <p><!-- Отступ --></p>
 
                         <ul class="checkboxes">
                             <li>
