@@ -124,50 +124,7 @@ $category = selectOne('topics', ['id' => $_GET['id']]);
         <!--main content-->
         <div class="main-content col-md-9 col-12">
             <h2>Опросы с раздела <strong><?=$category['name'];?></strong></h2>
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <a href="DaysDoor.php">
-                        <img src="assets/image/openDoor.jpg" alt="img-thumbnail" style="width: 300px; height: 170px;" >
-                    </a>
-                </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="DaysDoor.php">День открытых дверей...</a>
 
-                    </h3>
-
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Приёмная комиссия </p>
-                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 17.11.2024 </p>
-                    <p class="preview-text">
-                        Мы хотим узнать вас поближе и надеемся, что День открытых дверей станет отличным началом нашего общения.
-                        Мы готовы поделиться с вами всеми секретами Нашего успеха.
-                    </p>
-
-                </div>
-            </div>
-
-            <div class="post row">
-                <div class="img col-12 col-md-4">
-                    <a href="single.php">
-                        <img src="assets/image/image_4.png" alt="img-thumbnail">
-                    </a>
-                </div>
-                <div class="post_text col-12 col-md-8">
-                    <h3>
-                        <a href="single.php">Сдача вступительных испытаний...</a>
-
-                    </h3>
-
-                    <p><img src="assets/icons/user.png" style="width: 30px; height: 30px;"/> Author Kirra </p>
-                    <p><img src="assets/icons/calendar.png" style="width: 30px; height: 30px;"/> 27.10.2024 </p>
-                    <p class="preview-text">
-                        Мы предлагаем вам пройти небольшой опрос, который поможет нам определить,
-                        какие предметы ЕГЭ будут наиболее сдаваемы при поступлении в Вуз.
-                    </p>
-
-                </div>
-
-            </div>
 
             <?php foreach ($posts as $post) : ?>
                 <div class="post row">

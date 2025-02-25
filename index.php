@@ -187,12 +187,7 @@ if (!isset($_SESSION['login'])) {
                 </div>
             </div>
 
-            <div class="carousel-item">
-                <img src="assets/image/image_1.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="single.php">Перейти</a></h5>
-                </div>
-            </div>
+
 
             <?php foreach ($topTopic as $key => $post) : ?>
             <?php if($key == 0):?>
