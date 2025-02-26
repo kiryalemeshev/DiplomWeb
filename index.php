@@ -179,15 +179,7 @@ if (!isset($_SESSION['login'])) {
 
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
 
-        <div class="carousel-inner" >
-            <div class="carousel-item">
-                <img src="assets/image/open.png" class="d-block w-100" alt="..." >
-                <div class="carousel-caption d-none d-md-block">
-                    <h5><a href="DaysDoor.php">Перейти</a></h5>
-                </div>
-            </div>
-
-
+        <div class="carousel-inner">
 
             <?php foreach ($topTopic as $key => $post) : ?>
             <?php if($key == 0):?>
