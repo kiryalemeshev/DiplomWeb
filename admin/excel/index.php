@@ -93,7 +93,7 @@ include '../../app/controllers/posts.php';
             <tr>
                 <td>Опрос о потребностях и ожиданиях</td>
                 <td>Скачать таблицу о потребностях и ожиданиях от обучения.</td>
-                <td><a href="#" class="btn btn-primary">Скачать таблицу</a></td>
+                <td><a href="export_PotrIOzid.php" class="btn btn-primary">Скачать таблицу</a></td>
             </tr>
             <tr>
                 <td>Опрос о причинах выбора учебного заведения</td>
