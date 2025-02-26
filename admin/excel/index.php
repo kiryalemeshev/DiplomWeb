@@ -86,6 +86,16 @@ include '../../app/controllers/posts.php';
             </thead>
             <tbody>
             <tr>
+                <td><b>Приемная компания 2025</b></td>
+                <td>Скачать таблицу с детальной информацией по началу приема</td>
+                <td><a href="export_priem2025.php" class="btn btn-primary">Скачать таблицу</a></td>
+            </tr>
+            <tr>
+                <td><b>День открытых дверей 2025</b></td>
+                <td>Скачать таблицу с регистрационным этапом ко дню открытых дверей.</td>
+                <td><a href="export_OpenDoor.php" class="btn btn-primary">Скачать таблицу</a></td>
+            </tr>
+            <tr>
                 <td>Опрос о доступности и удобстве</td>
                 <td>Скачать таблицу для оценки удобства доступа к информациям и ресурсам.</td>
                 <td><a href="export_DostIUdob.php" class="btn btn-primary">Скачать таблицу</a></td>
@@ -99,6 +109,16 @@ include '../../app/controllers/posts.php';
                 <td>Опрос о причинах выбора учебного заведения</td>
                 <td>Скачать таблицу о причинах, по которым вы выбрали именно это учебное заведение.</td>
                 <td><a href="export_ViborUchebZav.php" class="btn btn-primary">Скачать таблицу</a></td>
+            <tr>
+                <td>Опрос об интересах и склонностях</td>
+                <td>Скачать таблицу о выявлениях образовательных интересов и склонностей абитуриентов.</td>
+                <td><a href="export_InteresSklon.php" class="btn btn-primary">Скачать таблицу</a></td>
+            </tr>
+            <tr>
+                <td>Опрос об уровне подготовки</td>
+                <td>Скачать таблицу на оценку уровня подготовки абитуриентов по ключевым дисциплинам.</td>
+                <td><a href="export_UrPodgotov.php" class="btn btn-primary">Скачать таблицу</a></td>
+            </tr>
             </tr>
             </tbody>
         </table>
