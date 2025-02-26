@@ -98,7 +98,7 @@ include '../../app/controllers/posts.php';
             <tr>
                 <td>Опрос о причинах выбора учебного заведения</td>
                 <td>Скачать таблицу о причинах, по которым вы выбрали именно это учебное заведение.</td>
-                <td><a href="#" class="btn btn-primary">Скачать таблицу</a></td>
+                <td><a href="export_ViborUchebZav.php" class="btn btn-primary">Скачать таблицу</a></td>
             </tr>
             </tbody>
         </table>
