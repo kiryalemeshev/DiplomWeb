@@ -16,6 +16,9 @@
             <li>
                 <a href="../../admin/comments/index.php">Вопросы</a>
             </li>
+            <li>
+                <a href="../../admin/excel/index.php">Экспорт Excel</a>
+            </li>
         </ul>
 
 
