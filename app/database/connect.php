@@ -12,11 +12,11 @@ $options = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH
 try {
     $pdo = new PDO(
         "$driver:host=$host; dbname=$db_name;charset=$charset",
-        $db_user,$db_pass,$options
+        $db_user,
+        $db_pass,
+        $options
     );
 
 } catch (PDOException $i) {
-    die("Ошибка подключения к базе данных");
-
+    die("Ошибка подключения к базе данных: " . $i->getMessage()); // Include the error message
 }
-

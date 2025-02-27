@@ -140,15 +140,15 @@ include '../../app/controllers/posts.php';
         <div class="chart-options">
             <div class="chart-option">
                 <div>Линейная</div>
-                <a href="#">Показать</a>
+                <a href="diag_lane.php">Показать</a>
             </div>
             <div class="chart-option">
                 <div>Круговая</div>
-                <a href="#">Показать</a>
+                <a href="diag_circle.php">Показать</a>
             </div>
             <div class="chart-option">
                 <div>Столбчатая</div>
-                <a href="#">Показать</a>
+                <a href="diag_stolb.php">Показать</a>
             </div>
         </div>
     </div><br>
