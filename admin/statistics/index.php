@@ -159,15 +159,15 @@ include '../../app/controllers/posts.php';
         <div class="chart-options">
             <div class="chart-option">
                 <div>Линейная</div>
-                <a href="#">Показать</a>
+                <a href="line_PotrAndOzid.php">Показать</a>
             </div>
             <div class="chart-option">
                 <div>Круговая</div>
-                <a href="#">Показать</a>
+                <a href="circle_PotrAndOzid.php">Показать</a>
             </div>
             <div class="chart-option">
                 <div>Столбчатая</div>
-                <a href="#">Показать</a>
+                <a href="stolb_PotrAndOzid.php">Показать</a>
             </div>
         </div>
     </div><br>
@@ -178,17 +178,17 @@ include '../../app/controllers/posts.php';
         <div class="chart-options">
             <div class="chart-option">
                 <div>Линейная</div>
-                <a href="#">Показать</a>
+                <a href="line_ViborZav.php">Показать</a>
 
             </div>
             <div class="chart-option">
                 <div>Круговая</div>
-                <a href="#">Показать</a>
+                <a href="circle_ViborZav.php">Показать</a>
 
             </div>
             <div class="chart-option">
                 <div>Столбчатая</div>
-                <a href="#">Показать</a><br>
+                <a href="stolb_PotrAndOzid.php">Показать</a><br>
 
             </div>
         </div>
