@@ -19,6 +19,9 @@
             <li>
                 <a href="../../admin/excel/index.php">Экспорт Excel</a>
             </li>
+            <li>
+                <a href="../../admin/statistics/index.php">Статистика</a>
+            </li>
         </ul>
 
 
