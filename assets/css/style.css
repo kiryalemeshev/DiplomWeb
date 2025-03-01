@@ -326,3 +326,9 @@ Comments
     font-weight: 600;
 
 }
+
+
+footer .col-sm-4 ul {
+    list-style-type: disc;
+    padding-left: 20px; /* добавьте отступ слева, чтобы маркеры не прилипали к тексту */
+}

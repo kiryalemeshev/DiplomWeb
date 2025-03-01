@@ -229,3 +229,7 @@ error msg
     padding-left: 10px;
     font-weight: 500;
 }
+footer .col-sm-4 ul {
+    list-style-type: disc;
+    padding-left: 20px; /* добавьте отступ слева, чтобы маркеры не прилипали к тексту */
+}
