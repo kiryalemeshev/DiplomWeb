@@ -280,7 +280,11 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
             border-width: 0 3px 3px 0;
             transform: rotate(45deg);
         }
-
+        .custom-swal {
+            font-family: 'Arial', sans-serif;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
     </style>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -293,6 +297,11 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <!-- Подключение SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- Подключение SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 
@@ -482,7 +491,7 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
                         </ul>
                     </div>
 
-                    <button type="submit" name="add_oprosnik" class="btn btn-primary">Отправить ответ</button>
+                        <button type="submit" name="add_oprosnik" class="btn btn-primary" id="submitButton">Отправить ответ</button>
 
                 </div><br>
 
@@ -505,7 +514,26 @@ $post = selectPostFromPostsWithUsersOnSingle('posts' , 'users', $_GET['post']);
 
 <?php include("app/include/footer.php"); ?>
 
+<script>
+    document.getElementById('submitButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Отменяем стандартное поведение кнопки
 
+        Swal.fire({
+            title: 'Успешно!', // Заголовок
+            text: 'Все отправлено!', // Текст сообщения
+            icon: 'success', // Иконка (success, error, warning, info, question)
+            confirmButtonText: 'ОК', // Текст на кнопке
+            customClass: {
+                popup: 'custom-swal', // Класс для кастомизации
+            },
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Если нужно отправить форму после нажатия на кнопку "ОК"
+                document.querySelector('form').submit();
+            }
+        });
+    });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
