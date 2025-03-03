@@ -118,8 +118,8 @@ if ($results) {
         <link rel="icon" type="image/png" href="../../assets/icons/logo_main.png">
         <style>
             #chart {
-                width: 1000px; /* Увеличили ширину */
-                height: 600px; /* Увеличили высоту */
+                width: 1200px; /* Увеличили ширину */
+                height: 800px; /* Увеличили высоту */
             }
             .data-info {
                 margin-top: 20px;
@@ -141,11 +141,13 @@ if ($results) {
         </style>
     </head>
     <body>
-    <h1>Анализ ответов на вопросы</h1>
+    <h1>Опрос о доступности и удобстве</h1>
     <canvas id="chart"></canvas>
 
     <div class="data-info">
         <h2>Данные диаграммы</h2>
+        <p>1. Какие из следующих аспектов работы приемной комиссии кажутся вам наиболее важными?</p>
+        <p>2. Какие каналы связи вы использовали для получения информации о поступлении?</p>
         <ul id="data-list"></ul>
     </div>
 
