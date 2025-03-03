@@ -85,8 +85,8 @@ if ($result) {
         <link rel="icon" type="image/png" href="../../assets/icons/logo_main.png">
         <style>
             #chart {
-                width: 800px; /* Увеличили ширину */
-                height: 800px; /* Увеличили высоту */
+                width: 600px; /* Увеличили ширину */
+                height: 600px; /* Увеличили высоту */
             }
             .data-info {
                 margin-top: 20px;
@@ -103,16 +103,18 @@ if ($result) {
                 padding: 0;
             }
             .data-info ul li {
-                margin: 5px 0;
+                margin: 15px 0;
             }
         </style>
     </head>
     <body>
-    <h1>Анализ ответов на вопросы</h1>
+    <h1>Опрос о потребностях и ожиданиях</h1>
     <canvas id="chart"></canvas>
 
     <div class="data-info">
         <h2>Данные диаграммы</h2>
+        <p>1. Какие аспекты условий обучения для вас наиболее важны?</p>
+        <p>2. Какая информация, помимо уже представленной на сайте, была бы для вас наиболее полезной при принятии решения о поступлении?</p>
         <ul id="data-list"></ul>
     </div>
 
