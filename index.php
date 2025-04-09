@@ -207,7 +207,7 @@ if (!isset($_SESSION['login'])) {
             </button>
         </div>
     </div>
-    <!--Блок карусели End-->
+    <!--Блок каруселей End-->
 
 
 <!--Блок Main-->
