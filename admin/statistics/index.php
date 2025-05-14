@@ -134,6 +134,26 @@ include '../../app/controllers/posts.php';
 
     <h1>Статистика в диаграммах</h1>
 
+    <!-- Опрос о летней приёмной комиссии -->
+    <div class="topic-container">
+        <div class="topic-title">Опрос о летней приёмной комиссии</div>
+        <div class="chart-options">
+            <div class="chart-option">
+                <div>Линейная</div>
+                <a href="lane_summer.php">Показать</a>
+            </div>
+            <div class="chart-option">
+                <div>Круговая</div>
+                <a href="circle_summer.php">Показать</a>
+            </div>
+            <div class="chart-option">
+                <div>Столбчатая</div>
+                <a href="stolb_summer.php">Показать</a>
+            </div>
+        </div>
+    </div><br>
+
+
     <!-- Опрос о доступности и удобстве -->
     <div class="topic-container">
         <div class="topic-title">Опрос о доступности и удобстве</div>

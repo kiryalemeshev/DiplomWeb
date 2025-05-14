@@ -86,6 +86,11 @@ include '../../app/controllers/posts.php';
             </thead>
             <tbody>
             <tr>
+                <td><b>Приемная компания 20 июня</b></td>
+                <td>Скачать таблицу с детальной информацией по летнему приёму</td>
+                <td><a href="export_20_iune.php" class="btn btn-primary">Скачать таблицу</a></td>
+            </tr>
+            <tr>
                 <td><b>Приемная компания 2025</b></td>
                 <td>Скачать таблицу с детальной информацией по началу приема</td>
                 <td><a href="export_priem2025.php" class="btn btn-primary">Скачать таблицу</a></td>
